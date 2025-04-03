@@ -1,9 +1,45 @@
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Jogo } from '../models/jogo';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JogoService {
+http = inject(HttpClient);
 
+  API = 'http://localhost:8080/api/jogo';
   constructor() { }
+
+  findAll(): Observable<Jogo[]>{
+      return this.http.get<Jogo[]>(this.API+'/findAll');
+    }
+  
+    findById(id: number): Observable<Jogo>{
+      return this.http.get<Jogo>(this.API+'/findById/'+id);
+    }
+  
+    findByNomeContainingIgnoreCase(nome: string): Observable<Jogo[]>{
+      let par = new HttpParams()
+      .set('nome',nome);
+      
+      return this.http.get<Jogo  []>(this.API+'/findByNomeContainingIgnoreCase', {params: par});
+    }
+    
+   //ARRUMAR O FINDBYCONSOLE []
+  
+    deleteById(id: number): Observable<string>{
+      return this.http.delete<string>(this.API+'/delete/'+id, {responseType: 'text' as 'json'});
+    }
+  
+    save(jogo: Jogo): Observable<string> {
+      return this.http.post<string>(this.API+'/save', jogo, {responseType: 'text' as 'json'});
+    }
+  
+    update(jogo: Jogo, id: number): Observable<string> {
+      return this.http.put<string>(this.API+'/update/'+id, jogo, {responseType: 'text' as 'json'});  
+    }
+
+
 }
