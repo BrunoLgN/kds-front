@@ -5,20 +5,26 @@
 
       <div class="m-3">
       <mdb-form-control>
-        <input mdbInput type="email" id="typeEmail" class="form-control" />
-        <label mdbLabel class="form-label" for="typeEmail">Email input</label>
+        <input [(ngModel)]="login.username" mdbInput type="email" id="typeEmail" class="form-control" />
+        <label mdbLabel class="form-label" for="typeEmail">Email </label>
       </mdb-form-control>
       </div>
 
       <div class="m-3">
       <mdb-form-control>
-        <input mdbInput type="password" id="typePassword" class="form-control" />
-        <label mdbLabel class="form-label" for="typePassword">Password input</label>
-      </mdb-form-control>
+        <input (keyup.enter)="logar()" [(ngModel)]="login.password" mdbInput type="password" id="senha"
+              class="form-control" />
+            <label mdbLabel class="form-label" for="senha">Senha:</label>
+          </mdb-form-control>
       </div>
 
       <div class="text-center">
-      <button (click)="logar() type="button" class="btn btn-success" mdbRipple>Success</button>
+      <button (click)="logar()" type="button" class="btn btn-success" mdbRipple>Success</button>
+      <div class="text-center mt-3">
+        <span>Não tem conta? </span>
+        <a (click)="cadastro()" class="text-primary" style="cursor: pointer;">Registre-se</a>
+      </div>
+      
       </div>
       
     </div>

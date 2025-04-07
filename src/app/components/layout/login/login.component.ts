@@ -41,4 +41,8 @@ export class LoginComponent {
     });
   }
 
+  cadastro(){
+    this.router.navigate(["admin/cadastroUsuario"])
+  }
+
 }
