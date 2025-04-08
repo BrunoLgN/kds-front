@@ -12,7 +12,7 @@ http = inject(HttpClient);
   API = 'http://localhost:8080/api/jogo';
   constructor() { }
 
-  findAll(): Observable<Jogo[]>{
+    findAll(): Observable<Jogo[]>{
       return this.http.get<Jogo[]>(this.API+'/findAll');
     }
   

@@ -8,7 +8,7 @@ import { Usuario } from '../../../models/usuario';
 import { Console } from '../../../models/console';
 import { JogoService } from '../../../services/jogo.service';
 import { EstadoJogo } from '../../../models/estado-jogo';
-import { HttpClientModule } from '@angular/common/http';
+
 
 
 
