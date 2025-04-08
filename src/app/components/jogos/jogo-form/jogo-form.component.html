@@ -1,1 +1,58 @@
-<p>jogo-form works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body centralizar">
+            <form #formulario="ngForm" (ngSubmit)="save()">
+              <div class="row">
+  
+  
+                <div class="col-6">
+                  <mdb-form-control>
+                    <input required [(ngModel)]="jogo.nome" mdbInput type="text" name="nome" class="form-control" />
+                    <label mdbLabel class="form-label" for="nome">Nome do Jogo:</label>
+                  </mdb-form-control>
+                </div>
+  
+                <div class="col-6">
+                  <mdb-form-control>
+                    <input required [(ngModel)]="jogo.valor" mdbInput type="number" name="valor" class="form-control" />
+                    <label mdbLabel class="form-label" for="valor">Valor (R$):</label>
+                  </mdb-form-control>
+                </div>
+  
+                <div class="col-6">
+                  <select class="form-control" name="estadoJogo" [(ngModel)]="jogo.estadoJogo">
+                    <option [value]="undefined">:: Estado do Jogo</option>
+                    <option *ngFor="let estado of listaEstados" [value]="estado">{{ estado }}</option>
+                  </select>
+                </div>
+  
+                <div class="col-6 mt-4">
+                  <select class="form-control" name="usuario" [(ngModel)]="jogo.usuarios">
+                    <option [value]="undefined">:: Selecione um Usuário</option>
+                    <option *ngFor="let usuario of listaUsuarios" [ngValue]="usuario">{{ usuario.nome }}</option>
+                  </select>
+                </div>
+  
+                <div class="col-6 mt-4">
+                  <select class="form-control" name="console" [(ngModel)]="jogo.console">
+                    <option [value]="undefined">:: Selecione um Console</option>
+                    <option *ngFor="let console of listaConsoles" [ngValue]="console">{{ console.nome }}</option>
+                  </select>
+                </div>
+  
+              </div>
+  
+              <br>
+              <button type="submit" [disabled]="!formulario.valid" class="btn btn-success btn-rounded">
+                <i class="fas fa-save fa-sm"></i> Salvar
+              </button>
+  
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
