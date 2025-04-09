@@ -4,9 +4,9 @@
         <div class="col-12 azul">
 
             <div class="card">
-                <div class="card-body alinharDiretira">
+                <div class="card-body alinharEsquerda">
             <h1>Cadastro de alunos</h1><br>
-            <a href="admin/usuario/new" class="btn btn-primary">Novo</a>
+            
  
                 <table class="table">
                     
@@ -29,8 +29,8 @@
                             <td>{{usuario.telefone}}</td>
                             <td>{{usuario.cidade}}</td>
                             <td>{{usuario.ranking}}</td>
-                            <td class="alinharDiretira"> 
-                                <a href="admin/usuario/edit/{{usuario.id}}" class="btn btn-primary">Editar</a>
+                            <td class="alinharEsquerda"> 
+                                <a href="admin/usuario/edit/{{usuario.id}}" class="btn btn-primary gap-1">Editar</a>
                                 <button (click)="deleteById(usuario)" class="btn btn-danger">Deletar</button>
                              </td>
                         </tr>
