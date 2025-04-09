@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { MdbModalModule, MdbModalRef, MdbModalService,  } from 'mdb-angular-ui-kit/modal';
 import { UsuarioFormComponent } from '../../usuarios/usuario-form/usuario-form.component';
 
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -50,8 +51,10 @@ export class LoginComponent {
     });
   }
 
-  cadastroUsuario(){
- this.modalService.open(this.modalCadastroUsuario);
+  cadastroUsuario() {
+    this.modalRef = this.modalService.open(this.modalCadastroUsuario);
   }
+  
+ 
 
 }

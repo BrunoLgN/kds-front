@@ -19,6 +19,7 @@ import { Cidade } from '../../../models/cidade';
 export class UsuarioFormComponent {
   usuario: Usuario = new Usuario();
   usuarioService = inject(UsuarioService);
+  
 
   save(){
     //instanciando na mao um ibjeto mas tem que ser autoincrement com o id do login

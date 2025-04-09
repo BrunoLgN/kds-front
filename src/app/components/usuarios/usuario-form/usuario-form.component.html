@@ -1,27 +1,24 @@
 <div class="container">
     <div class="row">
-      <div class="col-4 ">
+      <div class="col-md ">
         
         <header >
             
             <!-- Jumbotron -->
             <div class="p-5 text-center bg-body-tertiary">
               <h1 class="mb-3">KDS</h1>
-              <h4 class="mb-3">Keep Dream Swap</h4>
-              <a data-mdb-ripple-init class="btn btn-primary"  role="button" (click)="save()">Efetuar cadastro</a>
+              
+              
             </div>
             <!-- Jumbotron -->
           </header>
 
-      </div>
-      <div class="col-1">
-        <div class="vr" style="height: 550px;"></div>
-
-      </div>
-      <div class="col-7">
+      
+      
+      
         
         <div class="card gap-3 text-bg-light hover-shadow">
-          <h4 style="text-align: center;">Cadastro de Usuario</h4>
+         
 
         <mdb-form-control>
             <input  mdbInput type="nome" id="typeNome" class="form-control" [(ngModel)]="usuario.nome" name="nome" />
@@ -54,13 +51,13 @@
           </mdb-form-control>
 
           
-          
+          <a data-mdb-ripple-init class="btn btn-primary"  role="button" (click)="save()">Efetuar cadastro</a>
             
               
             
           </div>
   
-      </div>
+      
      
       
     </div>
