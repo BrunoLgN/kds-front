@@ -1,1 +1,47 @@
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-12 azul">
 
+            <div class="card">
+                <div class="card-body alinharDiretira">
+            <h1>Cadastro de alunos</h1><br>
+            <a href="admin/usuario/new" class="btn btn-primary">Novo</a>
+ 
+                <table class="table">
+                    
+                    <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Cpf</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Telefone</th>
+                        <th scope="col">Cidade</th>
+                        <th scope="col">Ranking</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        @for (usuario of lista; track $index) {
+                        <tr>
+                            <td>{{usuario.nome}}</td>
+                            <td>{{usuario.cpf}}</td>
+                            <td>{{usuario.email}}</td>
+                            <td>{{usuario.telefone}}</td>
+                            <td>{{usuario.cidade}}</td>
+                            <td>{{usuario.ranking}}</td>
+                            <td class="alinharDiretira"> 
+                                <a href="admin/usuario/edit/{{usuario.id}}" class="btn btn-primary">Editar</a>
+                                <button (click)="deleteById(usuario)" class="btn btn-danger">Deletar</button>
+                             </td>
+                        </tr>
+                    }
+                   
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+        </div>
+    </div>
+</div>

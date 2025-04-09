@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Usuario } from '../../../models/usuario';
+import { UsuarioService } from '../../../services/usuario.service';
+import Swal from "sweetalert2";
+
+
 
 @Component({
   selector: 'app-usuario-list',
@@ -9,4 +14,38 @@ import { Component } from '@angular/core';
 })
 export class UsuarioListComponent {
 
+    lista: Usuario[] = [];
+    usuarioService = inject(UsuarioService);
+
+    constructor(){
+      this.findAll()
+    }
+
+    findAll(){
+      this.usuarioService.findAll().subscribe({
+        next: (listaRetornada) =>{
+          this.lista = listaRetornada;
+        },
+        error: (erro) =>{
+          Swal.fire(erro.error,"","error");
+        }
+      });
+    }
+
+    deleteById(usuario: Usuario){
+
+      if(confirm("Deseja deletar?")){
+
+        this.usuarioService.deleteById(usuario.id).subscribe({
+          next: (mensagem) =>{//DEU CERTO
+            Swal.fire(mensagem, '', 'success');
+            this.findAll();
+          },
+          error: (erro) =>{//DEU ERRADO
+            Swal.fire(erro.error, '', 'error');
+          }
+         });
+        
+      }
+    }
 }
