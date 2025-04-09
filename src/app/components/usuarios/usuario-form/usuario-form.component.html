@@ -8,7 +8,7 @@
             <div class="p-5 text-center bg-body-tertiary">
               <h1 class="mb-3">KDS</h1>
               <h4 class="mb-3">Keep Dream Swap</h4>
-              <a data-mdb-ripple-init class="btn btn-primary" href="" role="button">Efetuar cadastro</a>
+              <a data-mdb-ripple-init class="btn btn-primary"  role="button" (click)="save()">Efetuar cadastro</a>
             </div>
             <!-- Jumbotron -->
           </header>
@@ -19,31 +19,41 @@
 
       </div>
       <div class="col-7">
+        
         <div class="card gap-3 text-bg-light hover-shadow">
+          <h4 style="text-align: center;">Cadastro de Usuario</h4>
+
         <mdb-form-control>
-            <input  mdbInput type="email" id="typeEmail" class="form-control" />
-            <label mdbLabel class="form-label" for="typeEmail">Nome completo </label>
+            <input  mdbInput type="nome" id="typeNome" class="form-control" [(ngModel)]="usuario.nome" name="nome" />
+            <label mdbLabel class="form-label" for="typeNome">Nome completo </label>
           </mdb-form-control>
 
           <mdb-form-control>
-            <input  mdbInput type="email" id="typeEmail" class="form-control" />
-            <label mdbLabel class="form-label" for="typeEmail">CPF </label>
+            <input  mdbInput type="cpf" id="typeCpf" class="form-control" [(ngModel)]="usuario.cpf" name="cpf"/>
+            <label mdbLabel class="form-label" for="typeCpf">CPF </label>
           </mdb-form-control>
 
           <mdb-form-control>
-            <input  mdbInput type="email" id="typeEmail" class="form-control" />
+            <input  mdbInput type="email" id="typeEmail" class="form-control"[(ngModel)]="usuario.email" name="email" />
             <label mdbLabel class="form-label" for="typeEmail">Email </label>
           </mdb-form-control>
 
           <mdb-form-control>
-            <input  mdbInput type="email" id="typeEmail" class="form-control" />
-            <label mdbLabel class="form-label" for="typeEmail">Senha </label>
+            <input  mdbInput type="senha" id="typePassword" class="form-control"[(ngModel)]="usuario.senha" name="senha" />
+            <label mdbLabel class="form-label" for="typePassword">Senha </label>
           </mdb-form-control>
 
           <mdb-form-control>
-            <input  mdbInput type="email" id="typeEmail" class="form-control" />
-            <label mdbLabel class="form-label" for="typeEmail">Cidade </label>
+            <input  mdbInput type="cidade" id="typeCidade" class="form-control"[(ngModel)]="usuario.cidade" name="cidade" />
+            <label mdbLabel class="form-label" for="typeCidade">Cidade </label>
           </mdb-form-control>
+
+          <mdb-form-control>
+            <input  mdbInput type="telefone" id="typeTelefone" class="form-control"[(ngModel)]="usuario.telefone" name="telefone" />
+            <label mdbLabel class="form-label" for="typeTelefone">Telefone </label>
+          </mdb-form-control>
+
+          
           
             
               

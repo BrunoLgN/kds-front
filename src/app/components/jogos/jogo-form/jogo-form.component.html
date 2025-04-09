@@ -1,58 +1,62 @@
 <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-body centralizar">
-            <form #formulario="ngForm" (ngSubmit)="save()">
-              <div class="row">
-  
-  
-                <div class="col-6">
-                  <mdb-form-control>
-                    <input required [(ngModel)]="jogo.nome" mdbInput type="text" name="nome" class="form-control" />
-                    <label mdbLabel class="form-label" for="nome">Nome do Jogo:</label>
-                  </mdb-form-control>
-                </div>
-  
-                <div class="col-6">
-                  <mdb-form-control>
-                    <input required [(ngModel)]="jogo.valor" mdbInput type="number" name="valor" class="form-control" />
-                    <label mdbLabel class="form-label" for="valor">Valor (R$):</label>
-                  </mdb-form-control>
-                </div>
-  
-                <div class="col-6">
-                  <select class="form-control" name="estadoJogo" [(ngModel)]="jogo.estadoJogo">
-                    <option [value]="undefined">:: Estado do Jogo</option>
-                    <option *ngFor="let estado of listaEstados" [value]="estado">{{ estado }}</option>
-                  </select>
-                </div>
-  
-                <div class="col-6 mt-4">
-                  <select class="form-control" name="usuario" [(ngModel)]="jogo.usuarios">
-                    <option [value]="undefined">:: Selecione um Usuário</option>
-                    <option *ngFor="let usuario of listaUsuarios" [ngValue]="usuario">{{ usuario.nome }}</option>
-                  </select>
-                </div>
-  
-                <div class="col-6 mt-4">
-                  <select class="form-control" name="console" [(ngModel)]="jogo.console">
-                    <option [value]="undefined">:: Selecione um Console</option>
-                    <option *ngFor="let console of listaConsoles" [ngValue]="console">{{ console.nome }}</option>
-                  </select>
-                </div>
-  
-              </div>
-  
-              <br>
-              <button type="submit" [disabled]="!formulario.valid" class="btn btn-success btn-rounded">
-                <i class="fas fa-save fa-sm"></i> Salvar
-              </button>
-  
-            </form>
+  <div class="row">
+    <div class="col-4 ">
+      
+      <header >
+          
+          <!-- Jumbotron -->
+          <div class="p-5 text-center bg-body-tertiary">
+            <h1 class="mb-3">KDS</h1>
+            <h4 class="mb-3">Keep Dream Swap</h4>
+            <a data-mdb-ripple-init class="btn btn-primary"  role="button" (click)="save()">Efetuar cadastro</a>
           </div>
-        </div>
-      </div>
+          <!-- Jumbotron -->
+        </header>
+
     </div>
+    <div class="col-1">
+      <div class="vr" style="height: 550px;"></div>
+
+    </div>
+    <div class="col-7">
+      
+      <div class="card gap-3 text-bg-light hover-shadow">
+        <h4 style="text-align: center;">Cadastro de Jogo</h4>
+
+      <mdb-form-control>
+          <input  mdbInput type="nome" id="typeNome" class="form-control" [(ngModel)]="jogo.nome" name="nome" />
+          <label mdbLabel class="form-label" for="typeNome">Nome do jogo </label>
+        </mdb-form-control>
+
+        <mdb-form-control>
+          <input  mdbInput type="estadoJogo" id="typeEstadoJogo" class="form-control" [(ngModel)]="jogo.estadoJogo" name="estadoJogo"/>
+          <label mdbLabel class="form-label" for="typeEstadoJogo">Esato do jogo </label>
+        </mdb-form-control>
+
+        <mdb-form-control>
+          <input  mdbInput type="valor" id="typeValor" class="form-control"[(ngModel)]="jogo.valor" name="valor" />
+          <label mdbLabel class="form-label" for="typeValor">Valor </label>
+        </mdb-form-control>
+
+    
+
+        <mdb-form-control>
+          <input  mdbInput type="console" id="typeConsole" class="form-control"[(ngModel)]="jogo.console" name="console" />
+          <label mdbLabel class="form-label" for="typeConsole">Console </label>
+        </mdb-form-control>
+
+        
+
+        
+        
+          
+            
+          
+        </div>
+
+    </div>
+   
+    
   </div>
   
+</div>

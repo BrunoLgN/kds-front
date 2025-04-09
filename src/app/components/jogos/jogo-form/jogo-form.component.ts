@@ -20,51 +20,39 @@ import { EstadoJogo } from '../../../models/estado-jogo';
   styleUrl: './jogo-form.component.scss'
 })
 export class JogoFormComponent {
-  
-  @Output("meuEvento") meuEvento = new EventEmitter(); //ELE VAI PEGAR QUALQUER COISA E EMITIR
+ jogo : Jogo = new Jogo();
+ jogoService = inject(JogoService);
+ 
+ save(){
+//instanciando na mao um ibjeto mas tem que fazer com modals
+    let meuUsuario = new Usuario();
+    meuUsuario.id = 4;;
+    this.jogo.usuario = meuUsuario;
+    //termiino da instanciacao
 
-    rotaAtivida = inject(ActivatedRoute);
-    roteador = inject(Router);
-    jogoService = inject(JogoService);
+     //instanciando na mao um ibjeto mas tem que ser autoincrement com o id do login
+        let meuConsole = new Console();
+        meuConsole.id = 2;;
+        this.jogo.console = meuConsole;
+        //termiino da instanciacao
 
-
-    jogo: Jogo = {
-      id: 0,
-      nome: '',
-      estadoJogo: EstadoJogo.NOVO, // valor default
-      valor: 0,
-      usuarios: {} as Usuario,
-      console: {} as Console
-    };
-
-    listaEstados = Object.values(EstadoJogo);
-
-    selecionarUsuario(usuario : Usuario){
-      this.jogo.usuarios = usuario;
+        //arrumar o enum
+  this.jogoService.save(this.jogo).subscribe({
+    next: mensagem =>{
+     Swal.fire({
+              title: mensagem,
+              icon: "success",
+              confirmButtonText: "Ok"
+            });
+      //this.jogo = new Jogo //limpa o form
+    },
+    error: erro =>{
+      Swal.fire(erro.error,"","error");
     }
 
-    selecionarConsole(console : Console){
-      this.jogo.console = console;
-    }
-
-    selecionarEstadoJogo(estado : EstadoJogo){
-      this.jogo.estadoJogo = estado;
-    }
-     save(){
-      //save
-      this.jogoService.save(this.jogo).subscribe({
-
-        next: (mensagem) => {
-          Swal.fire(mensagem, '', 'success');
-          this.roteador.navigate(['admin/carros']);
-          this.meuEvento.emit("OK");
-        },
-        error:(erro) => {
-          Swal.fire(erro.error,"","error");
-        }
-
-      })
-     }
+  })
+ }
+ 
 
     
 }

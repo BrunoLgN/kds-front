@@ -7,6 +7,6 @@ export class Jogo {
     nome!: string;
     estadoJogo!: EstadoJogo; // enum para estado jogo
     valor!:number;
-    usuarios!: Usuario;//n para 1
+    usuario!: Usuario;//n para 1
     console!: Console//n para 1
 }

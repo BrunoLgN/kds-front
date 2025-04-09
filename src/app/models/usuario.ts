@@ -8,6 +8,7 @@ export class Usuario {
     cpf!: string;
     email!: string;
     senha!: string;
+    telefone !: string;
     statusCadastro!: string;
     cidade!: Cidade;
     ranking!: Ranking;//n para 1
