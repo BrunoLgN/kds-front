@@ -7,6 +7,7 @@ import { DashboardComponent } from './components/layout/dashboard/dashboard.comp
 import { UsuarioFormComponent } from './components/usuarios/usuario-form/usuario-form.component';
 import { JogoFormComponent } from './components/jogos/jogo-form/jogo-form.component';
 import { UsuarioListComponent } from './components/usuarios/usuario-list/usuario-list.component';
+import { CidadeListComponent } from './components/cidades/cidade-list/cidade-list.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "login", pathMatch: 'full'},
@@ -15,7 +16,8 @@ export const routes: Routes = [
         {path: "dashboard", component: DashboardComponent},
         {path: "cadastroUsuario", component: UsuarioFormComponent},
         {path: "cadastroJogo", component: JogoFormComponent},
-        {path: "usuario/new", component: UsuarioListComponent},
+        {path: "usuarios", component: UsuarioListComponent},
+        {path: "cidades", component: CidadeListComponent}
 
         
     ]}
