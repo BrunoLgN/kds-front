@@ -1,14 +1,16 @@
-import { Component, inject, ViewEncapsulation } from '@angular/core';
+import { Component, inject, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Login } from '../../../models/login';
 import { FormsModule } from '@angular/forms';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { MdbModalModule, MdbModalRef, MdbModalService,  } from 'mdb-angular-ui-kit/modal';
+import { UsuarioFormComponent } from '../../usuarios/usuario-form/usuario-form.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, MdbFormsModule],
+  imports: [FormsModule, MdbFormsModule, UsuarioFormComponent, MdbModalModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
   encapsulation: ViewEncapsulation.None
@@ -16,8 +18,13 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent {
 
-  login: Login = new Login();
+  //imports modal
+  modalService = inject(MdbModalService);//para conseguir abrir a modal
+  @ViewChild("modalCadastroUsuario") modalCadastroUsuario!: TemplateRef<any>;
+  modalRef!: MdbModalRef<any>;
 
+
+  login: Login = new Login();
   router = inject(Router);
 
 
@@ -43,8 +50,8 @@ export class LoginComponent {
     });
   }
 
-  cadastro(){
-    this.router.navigate(["admin/cadastroUsuario"])
+  cadastroUsuario(){
+ this.modalService.open(this.modalCadastroUsuario);
   }
 
 }

@@ -39,7 +39,7 @@
             <button (click)="logar()" type="button" class="btn btn-success" mdbRipple>Login</button>
             <div class="text-center mt-4">
               <span>Não tem conta? </span>
-              <a (click)="cadastro()" class="text-primary" style="cursor: pointer;">Registre-se</a>
+              <a (click)="cadastroUsuario()" class="text-primary" style="cursor: pointer;">Registre-se</a>
             </div>
             
         </div>
@@ -53,3 +53,19 @@
   </div>
   </div>
 </div>
+<ng-template #modalCadastroUsuario>
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Cadastro de Usuario</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modalRef.close()"
+    ></button>
+  </div>
+  <div class="modal-body">
+
+   <app-usuario-form></app-usuario-form>
+
+  </div>
+  </ng-template>
