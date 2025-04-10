@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { ConsoleService } from '../../../services/console.service';
 import { Console } from '../../../models/console';
 import Swal from 'sweetalert2';
@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
   styleUrl: './console-list.component.scss'
 })
 export class ConsoleListComponent {
+
+  @Output("retorno") retorno = new EventEmitter<any>();
     lista: Console[] = [];
         consoleService = inject(ConsoleService);
     

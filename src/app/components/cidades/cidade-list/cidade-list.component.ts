@@ -3,11 +3,12 @@ import { CidadeService } from '../../../services/cidade.service';
 import { Cidade } from '../../../models/cidade';
 import Swal from "sweetalert2";
 import { RouterLink } from '@angular/router';
+import { ConsoleListComponent } from "../../console/console-list/console-list.component";
 
 @Component({
   selector: 'app-cidade-list',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, ConsoleListComponent],
   templateUrl: './cidade-list.component.html',
   styleUrl: './cidade-list.component.scss'
 })

@@ -11,11 +11,12 @@
                     <div class="col-11">
                         <h1>Cidades</h1>
                     </div>
-                    <div class="col-1">
+                    @if(esconderBotoes == false){<div class="col-1">
                         <a href="admin/cadastroCidade">
                         <button type="button" class="btn btn-primary" data-mdb-ripple-init>Nova cidade</button>
                     </a>
-                    </div>
+                    </div>}
+                    
                     
 
                 </div>
@@ -61,3 +62,4 @@
         </div>
     </div>
 </div>
+

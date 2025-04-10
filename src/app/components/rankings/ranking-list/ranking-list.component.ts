@@ -3,6 +3,7 @@ import { Ranking } from '../../../models/ranking';
 import { RankingService } from '../../../services/ranking.service';
 import Swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-ranking-list',
   standalone: true,

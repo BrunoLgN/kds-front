@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Output,  } from '@angular/core';
+import { Component, EventEmitter, inject, Output, TemplateRef, ViewChild,  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
@@ -9,6 +9,7 @@ import { Console } from '../../../models/console';
 import { JogoService } from '../../../services/jogo.service';
 import { EstadoJogo } from '../../../models/estado-jogo';
 import { ConsoleListComponent } from "../../console/console-list/console-list.component";
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 
 
 
@@ -16,13 +17,16 @@ import { ConsoleListComponent } from "../../console/console-list/console-list.co
 @Component({
   selector: 'app-jogo-form',
   standalone: true,
-  imports: [MdbFormsModule, FormsModule, ],
+  imports: [MdbFormsModule, FormsModule, ConsoleListComponent],
   templateUrl: './jogo-form.component.html',
   styleUrl: './jogo-form.component.scss'
 })
 export class JogoFormComponent {
  jogo : Jogo = new Jogo();
  jogoService = inject(JogoService);
+
+
+
  
  save(){
 //instanciando na mao um ibjeto mas tem que fazer com modals
@@ -54,7 +58,6 @@ export class JogoFormComponent {
 
   })
  }
- 
 
-    
+
 }
