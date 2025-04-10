@@ -5,7 +5,25 @@
 
             <div class="card">
                 <div class="card-body alinharDiretira">
-            <h1>Cadastro de Cidade</h1><br>
+            <div class="containerInterno">
+                <div class="row">
+
+                    <div class="col-11">
+                        <h1>Cidades</h1>
+                    </div>
+                    <div class="col-1">
+                        <a href="admin/cadastroCidade">
+                        <button type="button" class="btn btn-primary" data-mdb-ripple-init>Nova cidade</button>
+                    </a>
+                    </div>
+                    
+
+                </div>
+                
+            </div>
+            
+            
+              
            
  
                 <table class="table">
@@ -25,7 +43,9 @@
                                 @if(esconderBotoes){
                                     <button tupe = "button" class = "btn btn-primary btn-rounded" mdbRipple (click)="select(cidade)">Selecionar</button>
                                 }
-                                @else{<a href="cidade/new{{cidade.id}}" class="btn btn-primary">Editar</a>
+                                @else{<a [routerLink]="['/admin/cadastroCidade', cidade.id]" class="btn btn-primary">Editar</a>
+
+
                                 <button (click)="deleteById(cidade)" class="btn btn-danger">Deletar</button>}
                              </td>
                         </tr>

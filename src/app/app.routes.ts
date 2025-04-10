@@ -25,7 +25,9 @@ export const routes: Routes = [
         {path: "jogos", component: JogoListComponent},
         {path: "rankings", component: RankingListComponent},
         {path: "consoles", component: ConsoleListComponent},
-        {path: "cidade/new", component: CidadeFormComponent},
+        {path: "cadastroCidade", component: CidadeFormComponent},
+        { path: "cadastroCidade/:id", component: CidadeFormComponent }
+
         
 
         
