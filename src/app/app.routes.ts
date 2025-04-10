@@ -8,6 +8,9 @@ import { UsuarioFormComponent } from './components/usuarios/usuario-form/usuario
 import { JogoFormComponent } from './components/jogos/jogo-form/jogo-form.component';
 import { UsuarioListComponent } from './components/usuarios/usuario-list/usuario-list.component';
 import { CidadeListComponent } from './components/cidades/cidade-list/cidade-list.component';
+import { JogoListComponent } from './components/jogos/jogo-list/jogo-list.component';
+import { RankingListComponent } from './components/rankings/ranking-list/ranking-list.component';
+import { ConsoleListComponent } from './components/console/console-list/console-list.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "login", pathMatch: 'full'},
@@ -17,7 +20,11 @@ export const routes: Routes = [
         {path: "cadastroUsuario", component: UsuarioFormComponent},
         {path: "cadastroJogo", component: JogoFormComponent},
         {path: "usuarios", component: UsuarioListComponent},
-        {path: "cidades", component: CidadeListComponent}
+        {path: "cidades", component: CidadeListComponent},
+        {path: "jogos", component: JogoListComponent},
+        {path: "rankings", component: RankingListComponent},
+        {path: "consoles", component: ConsoleListComponent},
+        
 
         
     ]}

@@ -30,7 +30,11 @@
                             <td>{{usuario.cidade}}</td>
                             <td>{{usuario.ranking}}</td>
                             <td class="alinharEsquerda"> 
+<<<<<<< HEAD
                                 <a (click)="editUsuario(usuario)" class="text-primary" style="cursor: pointer;">Editar</a>
+=======
+                                <a href="admin/usuario/edit/{{usuario.id}}" class="btn btn-primary ">Editar</a>
+>>>>>>> c88fd05994b96af19224067aa73997c70f68d209
                                 <button (click)="deleteById(usuario)" class="btn btn-danger">Deletar</button>
                              </td>
                         </tr>

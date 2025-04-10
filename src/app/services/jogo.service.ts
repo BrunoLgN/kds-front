@@ -29,9 +29,9 @@ http = inject(HttpClient);
     
    //ARRUMAR O FINDBYCONSOLE []
   
-    deleteById(id: number): Observable<string>{
-      return this.http.delete<string>(this.API+'/delete/'+id, {responseType: 'text' as 'json'});
-    }
+   deleteById(id: number): Observable<string>{
+    return this.http.delete<string>(this.API+'/delete/'+id, {responseType: 'text' as 'json'});
+  }
   
     save(jogo: Jogo): Observable<string> {
       return this.http.post<string>(this.API+'/save', jogo, {responseType: 'text' as 'json'});
