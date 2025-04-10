@@ -28,10 +28,7 @@
           <label mdbLabel class="form-label" for="typeNome">Nome do jogo </label>
         </mdb-form-control>
 
-        <mdb-form-control>
-          <input  mdbInput type="estadoJogo" id="typeEstadoJogo" class="form-control" [(ngModel)]="jogo.estadoJogo" name="estadoJogo"/>
-          <label mdbLabel class="form-label" for="typeEstadoJogo">Esato do jogo </label>
-        </mdb-form-control>
+       
 
         <mdb-form-control>
           <input  mdbInput type="valor" id="typeValor" class="form-control"[(ngModel)]="jogo.valor" name="valor" />
@@ -45,6 +42,16 @@
           <label mdbLabel class="form-label" for="typeConsole">Console </label>
         </mdb-form-control>
 
+        <mdb-form-control>
+          <div class="mb-3">
+            <label for="estadoJogo" class="form-label">Estado do Jogo:</label>
+            <select id="estadoJogo" class="form-select" [(ngModel)]="jogo.estadoJogo" name="estadoJogo">
+              <option [ngValue]="'NOVO'">Novo</option>
+              <option [ngValue]="'USADO'">Usado</option>
+              <option [ngValue]="'RECONDICIONADO'">Recondicionado</option>
+            </select>
+          </div>
+        </mdb-form-control>
         
 
         
@@ -60,3 +67,5 @@
   </div>
   
 </div>
+
+

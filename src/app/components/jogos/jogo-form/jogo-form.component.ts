@@ -8,6 +8,7 @@ import { Usuario } from '../../../models/usuario';
 import { Console } from '../../../models/console';
 import { JogoService } from '../../../services/jogo.service';
 import { EstadoJogo } from '../../../models/estado-jogo';
+import { ConsoleListComponent } from "../../console/console-list/console-list.component";
 
 
 
@@ -15,7 +16,7 @@ import { EstadoJogo } from '../../../models/estado-jogo';
 @Component({
   selector: 'app-jogo-form',
   standalone: true,
-  imports: [MdbFormsModule, FormsModule],
+  imports: [MdbFormsModule, FormsModule, ],
   templateUrl: './jogo-form.component.html',
   styleUrl: './jogo-form.component.scss'
 })
@@ -37,6 +38,7 @@ export class JogoFormComponent {
         //termiino da instanciacao
 
         //arrumar o enum
+       
   this.jogoService.save(this.jogo).subscribe({
     next: mensagem =>{
      Swal.fire({
@@ -44,7 +46,7 @@ export class JogoFormComponent {
               icon: "success",
               confirmButtonText: "Ok"
             });
-      //this.jogo = new Jogo //limpa o form
+      this.jogo = new Jogo //limpa o form
     },
     error: erro =>{
       Swal.fire(erro.error,"","error");
