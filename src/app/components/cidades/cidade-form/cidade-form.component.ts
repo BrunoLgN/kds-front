@@ -40,9 +40,12 @@ export class CidadeFormComponent {
   }
 
   save(){
+    const cidadeParaEnviar = { ...this.cidade };
+    delete cidadeParaEnviar.usuarios; 
+
     if(this.cidade.id>0){
 
-      this.cidadeService.update(this.cidade, this.cidade.id).subscribe({
+      this.cidadeService.update(cidadeParaEnviar, this.cidade.id).subscribe({
         next: mensagem =>{
        
         Swal.fire({
@@ -60,7 +63,7 @@ export class CidadeFormComponent {
       })
       
     }else{
-      this.cidadeService.save(this.cidade).subscribe({
+      this.cidadeService.save(cidadeParaEnviar).subscribe({
         next: mensagem =>{
        
         Swal.fire({

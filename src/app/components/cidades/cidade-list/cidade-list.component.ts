@@ -2,11 +2,12 @@ import { Component, EventEmitter, inject, Inject, Input, Output } from '@angular
 import { CidadeService } from '../../../services/cidade.service';
 import { Cidade } from '../../../models/cidade';
 import Swal from "sweetalert2";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cidade-list',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './cidade-list.component.html',
   styleUrl: './cidade-list.component.scss'
 })
