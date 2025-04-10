@@ -1,1 +1,47 @@
-<p>jogo-list works!</p>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-12 azul">
+
+            <div class="card">
+                <div class="card-body alinharEsquerda">
+            <h1>Jogos</h1><br>
+            
+ 
+                <table class="table">
+                    
+                    <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Valor</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Console</th>
+                       
+                    </tr>
+                    </thead>
+                    <tbody>
+                        @for (jogo of lista; track $index) {
+                        <tr>
+                            <td>{{jogo.nome}}</td>
+                            <td>{{jogo.estadoJogo}}</td>
+                            <td>{{jogo.valor}}</td>
+                            <td>{{jogo.usuario}}</td>
+                            <td>{{jogo.console}}</td>
+                            
+                            <td class="alinharEsquerda"> 
+                                <a href="admin/jogo/edit/{{jogo.id}}" class="btn btn-primary ">Editar</a>
+                                <button (click)="deleteById(jogo)" class="btn btn-danger">Deletar</button>
+                             </td>
+                        </tr>
+                    }
+                   
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+        </div>
+    </div>
+</div>

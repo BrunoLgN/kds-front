@@ -1,5 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { Console } from '../models/console';
+
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,9 +13,9 @@ export class ConsoleService {
     API = 'http://localhost:8080/api/console';
 
   constructor() { }
-  findAll(): Observable<Console[]>{
-        return this.http.get<Console[]>(this.API+'/findAll');
-      }
+      findAll(): Observable<Console[]>{
+            return this.http.get<Console[]>(this.API+'/findAll');
+          }
     
       findById(id: number): Observable<Console>{
         return this.http.get<Console>(this.API+'/findById/'+id);
