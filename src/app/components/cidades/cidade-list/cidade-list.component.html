@@ -20,14 +20,18 @@
                         @for (cidade of lista; track $index) {
                         <tr>
                             <td>{{cidade.nome}}</td>
-                           
+                            
                             <td class="alinharDiretira"> 
-                                <a href="admin/usuario/edit/{{cidade.id}}" class="btn btn-primary">Editar</a>
-                                <button (click)="deleteById(cidade)" class="btn btn-danger">Deletar</button>
+                                @if(esconderBotoes){
+                                    <button tupe = "button" class = "btn btn-primary btn-rounded" mdbRipple (click)="select(cidade)">Selecionar</button>
+                                }
+                                @else{<a href="cidade/new{{cidade.id}}" class="btn btn-primary">Editar</a>
+                                <button (click)="deleteById(cidade)" class="btn btn-danger">Deletar</button>}
                              </td>
                         </tr>
+
+                      
                     }
-                   
                     </tbody>
                 </table>
 

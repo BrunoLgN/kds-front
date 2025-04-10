@@ -21,12 +21,12 @@
          
 
         <mdb-form-control>
-            <input  mdbInput type="nome" id="typeNome" class="form-control" [(ngModel)]="usuario.nome" name="nome" />
+            <input  mdbInput type="text" id="typeNome" class="form-control" [(ngModel)]="usuario.nome" name="nome" />
             <label mdbLabel class="form-label" for="typeNome">Nome completo </label>
           </mdb-form-control>
 
           <mdb-form-control>
-            <input  mdbInput type="cpf" id="typeCpf" class="form-control" [(ngModel)]="usuario.cpf" name="cpf"/>
+            <input  mdbInput type="text" id="typeCpf" class="form-control" [(ngModel)]="usuario.cpf" name="cpf"/>
             <label mdbLabel class="form-label" for="typeCpf">CPF </label>
           </mdb-form-control>
 
@@ -36,7 +36,7 @@
           </mdb-form-control>
 
           <mdb-form-control>
-            <input  mdbInput type="senha" id="typePassword" class="form-control"[(ngModel)]="usuario.senha" name="senha" />
+            <input  mdbInput type="password" id="typePassword" class="form-control"[(ngModel)]="usuario.senha" name="senha" />
             <label mdbLabel class="form-label" for="typePassword">Senha </label>
           </mdb-form-control>
 
@@ -50,7 +50,7 @@
           </mdb-form-control>
 
           <mdb-form-control>
-            <input  mdbInput type="telefone" id="typeTelefone" class="form-control"[(ngModel)]="usuario.telefone" name="telefone" />
+            <input  mdbInput type="tel" id="typeTelefone" class="form-control"[(ngModel)]="usuario.telefone" name="telefone" />
             <label mdbLabel class="form-label" for="typeTelefone">Telefone </label>
           </mdb-form-control>
 
@@ -67,7 +67,7 @@
     </div>
     
   </div>
-<!--<ng-template #modalCidadeDetalhe>
+<ng-template #modalCidadeDetalhe>
     <div class="modal-header">
       <h5 class="modal-title" id="exampleModalLabel">Cadastro de Usuario</h5>
       <button
@@ -79,9 +79,9 @@
     </div>
     <div class="modal-body">
   
-     <app-cidade-list></app-cidade-list>
+     <app-cidade-list [esconderBotoes]="true" (retorno)="retornoCidade($event)"></app-cidade-list>
   
     </div>
     </ng-template>
-  -->
+  
   

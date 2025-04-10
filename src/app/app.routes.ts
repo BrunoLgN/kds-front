@@ -11,6 +11,7 @@ import { CidadeListComponent } from './components/cidades/cidade-list/cidade-lis
 import { JogoListComponent } from './components/jogos/jogo-list/jogo-list.component';
 import { RankingListComponent } from './components/rankings/ranking-list/ranking-list.component';
 import { ConsoleListComponent } from './components/console/console-list/console-list.component';
+import { CidadeFormComponent } from './components/cidades/cidade-form/cidade-form.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "login", pathMatch: 'full'},
@@ -24,6 +25,7 @@ export const routes: Routes = [
         {path: "jogos", component: JogoListComponent},
         {path: "rankings", component: RankingListComponent},
         {path: "consoles", component: ConsoleListComponent},
+        {path: "cidade/new", component: CidadeFormComponent},
         
 
         

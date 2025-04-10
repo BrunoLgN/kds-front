@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output, TemplateRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { Usuario } from '../../../models/usuario';
@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { Cidade } from '../../../models/cidade';
 import { CidadeListComponent } from "../../cidades/cidade-list/cidade-list.component";
 import { ActivatedRoute } from '@angular/router';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 
 
 
@@ -23,10 +24,15 @@ export class UsuarioFormComponent {
   @Output() retorno = new EventEmitter();
   usuarioService = inject(UsuarioService);
 
+   //imports modal
+    modalService = inject(MdbModalService);//para conseguir abrir a modal
+    @ViewChild("modalCidadeDetalhe") modalCidadeDetalhe!: TemplateRef<any>;
+    modalRef!: MdbModalRef<any>;
+
   rotaAtivida = inject(ActivatedRoute);
   
 
-  construcutor(){
+  constructor(){
     let id = this.rotaAtivida.snapshot.params["id"];
     if(id>0){
       this.findById(id);
@@ -100,6 +106,10 @@ export class UsuarioFormComponent {
   }
   }
   buscarCidade(){
-
+    this.modalRef = this.modalService.open(this.modalCidadeDetalhe, {modalClass: "modal-lg "});
+  }
+  retornoCidade(cidade: Cidade){
+    this.usuario.cidade = cidade;
+    this.modalRef.close();
   }
 }

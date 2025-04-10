@@ -1,12 +1,81 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
+import { CidadeService } from '../../../services/cidade.service';
+import { ActivatedRoute } from '@angular/router';
+import { Cidade } from '../../../models/cidade';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cidade-form',
   standalone: true,
-  imports: [],
+  imports: [MdbFormsModule, FormsModule],
   templateUrl: './cidade-form.component.html',
   styleUrl: './cidade-form.component.scss'
 })
 export class CidadeFormComponent {
+  cidade: Cidade = new Cidade();
 
+  rotaAtivida = inject(ActivatedRoute);
+  cidadeService = inject(CidadeService);
+
+  constructor(){
+    let id = this.rotaAtivida.snapshot.params['id'];
+    if(id > 0){
+      this.findByID(id);
+    }
+
+   
+  }
+
+  findByID(id: number){
+    this.cidadeService.findById(id).subscribe({
+      next: retorno =>{      
+        this.cidade = retorno;
+      },
+      error: erro =>{
+        Swal.fire(erro.error, '', 'error');
+      }
+    })
+  }
+
+  save(){
+    if(this.cidade.id>0){
+
+      this.cidadeService.update(this.cidade, this.cidade.id).subscribe({
+        next: mensagem =>{
+       
+        Swal.fire({
+          title: mensagem,
+          icon: "success",
+          confirmButtonText: "Ok",
+
+        });
+  
+        },
+        error: erro =>{
+          Swal.fire(erro.error, '', 'error');
+        }
+
+      })
+      
+    }else{
+      this.cidadeService.save(this.cidade).subscribe({
+        next: mensagem =>{
+       
+        Swal.fire({
+          title: mensagem,
+          icon: "success",
+          confirmButtonText: "Ok",
+
+        });
+  
+        },
+        error: erro =>{  
+          Swal.fire(erro.error, '', 'error');
+        }
+
+      })
+    }
+  }
 }

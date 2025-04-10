@@ -1,4 +1,4 @@
-import { Component, inject, Inject } from '@angular/core';
+import { Component, EventEmitter, inject, Inject, Input, Output } from '@angular/core';
 import { CidadeService } from '../../../services/cidade.service';
 import { Cidade } from '../../../models/cidade';
 import Swal from "sweetalert2";
@@ -14,6 +14,8 @@ export class CidadeListComponent {
 
   lista: Cidade[] = [];
   cidadeService = inject(CidadeService)
+  @Input() esconderBotoes : boolean = false; 
+   @Output() retorno = new EventEmitter();
 
   constructor(){
     this.findAll();
@@ -43,5 +45,8 @@ export class CidadeListComponent {
                   }
       });
     }
+  }
+  select(cidade: Cidade){
+    this.retorno.emit(cidade);
   }
 }
