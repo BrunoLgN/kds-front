@@ -5,7 +5,7 @@
 
             <div class="card">
                 <div class="card-body alinharEsquerda">
-            <h1>Cadastro de alunos</h1><br>
+            <h1>Lista de usuario</h1><br>
             
  
                 <table class="table">
@@ -30,7 +30,7 @@
                             <td>{{usuario.cidade}}</td>
                             <td>{{usuario.ranking}}</td>
                             <td class="alinharEsquerda"> 
-                                <a href="admin/usuario/edit/{{usuario.id}}" class="btn btn-primary gap-1">Editar</a>
+                                <a (click)="editUsuario(usuario)" class="text-primary" style="cursor: pointer;">Editar</a>
                                 <button (click)="deleteById(usuario)" class="btn btn-danger">Deletar</button>
                              </td>
                         </tr>
@@ -45,3 +45,20 @@
         </div>
     </div>
 </div>
+
+<ng-template #modalCadastroUsuario>
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Edit De Usuario</h5>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modalRef.close()"
+      ></button>
+    </div>
+    <div class="modal-body">
+  
+     <app-usuario-form [usuario]="usuarioEdit" (retorno)="retornoModal($event)"></app-usuario-form>
+  
+    </div>
+    </ng-template>

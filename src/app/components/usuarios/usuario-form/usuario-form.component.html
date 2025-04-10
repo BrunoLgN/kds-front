@@ -41,8 +41,12 @@
           </mdb-form-control>
 
           <mdb-form-control>
-            <input  mdbInput type="cidade" id="typeCidade" class="form-control"[(ngModel)]="usuario.cidade" name="cidade" />
-            <label mdbLabel class="form-label" for="typeCidade">Cidade </label>
+            @if(usuario.cidade == null){
+             <a data-mdb-ripple-init class="btn btn-primary"  role="button" (click)="buscarCidade()">Buscar cidade</a>
+             }@else{
+            <span >Cidade : {{usuario.cidade.nome}} </span>
+            <a data-mdb-ripple-init class="btn btn-primary"  role="button" (click)="buscarCidade()">Alterar cidade</a>
+            }
           </mdb-form-control>
 
           <mdb-form-control>
@@ -63,4 +67,21 @@
     </div>
     
   </div>
+<!--<ng-template #modalCidadeDetalhe>
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Cadastro de Usuario</h5>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modalRef.close()"
+      ></button>
+    </div>
+    <div class="modal-body">
+  
+     <app-cidade-list></app-cidade-list>
+  
+    </div>
+    </ng-template>
+  -->
   
