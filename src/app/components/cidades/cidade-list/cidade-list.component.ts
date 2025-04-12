@@ -36,18 +36,33 @@ export class CidadeListComponent {
   }
 
   deleteById(cidade: Cidade){
-    if(confirm("Deseja deletar?")){
-      this.cidadeService.deleteById(cidade.id).subscribe({
-        next: (mensagem) =>{//DEU CERTO
-                    Swal.fire(mensagem, '', 'success');
-                    this.findAll();
-                  },
-                  error: (erro) =>{//DEU ERRADO
-                    Swal.fire(erro.error, '', 'error');
-                  }
-      });
-    }
-  }
+    
+          
+          Swal.fire({
+            title: "Você realmente deseja deletar a cidade?",
+            showDenyButton: true,
+            
+            confirmButtonText: "DELETAR",
+            denyButtonText: `NÃO DELETAR`
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+              this.cidadeService.deleteById(cidade.id).subscribe({
+                next: (mensagem) =>{//DEU CERTO
+                  Swal.fire(mensagem, '', 'success');
+                  this.findAll();
+                },
+                error: (erro) => {
+                  const mensagem = erro.error?.message ||  'Não é possivel deletar, pois há varios usuarios associados a cidade.';
+                  Swal.fire('Erro', mensagem, 'error');
+                }
+                
+               });
+        }});
+    
+            
+            
+          }
   select(cidade: Cidade){
     this.retorno.emit(cidade);
   }

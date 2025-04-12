@@ -21,6 +21,7 @@ export const routes: Routes = [
         {path: "dashboard", component: DashboardComponent},
         {path: "cadastroUsuario", component: UsuarioFormComponent},
         {path: "cadastroJogo", component: JogoFormComponent},
+        {path: "cadastroJogo/:id", component: JogoFormComponent},
         {path: "usuarios", component: UsuarioListComponent},
         {path: "cidades", component: CidadeListComponent},
         {path: "jogos", component: JogoListComponent},

@@ -26,8 +26,29 @@ export class JogoFormComponent {
  @Input() jogo : Jogo = new Jogo();
  @Output() retorno = new EventEmitter<Console>();
 
-
+ rotaAtivida = inject(ActivatedRoute);
  jogoService = inject(JogoService);
+
+ constructor(){
+  let id = this.rotaAtivida.snapshot.params['id'];
+  if(id > 0){
+    this.findByID(id);
+  }
+
+  
+
+ 
+  }
+  findByID(id: number){
+      this.jogoService.findById(id).subscribe({
+        next: retorno =>{      
+          this.jogo = retorno;
+        },
+        error: erro =>{
+          Swal.fire(erro.error, '', 'error');
+        }
+      })
+    }
 
  
 //imports modal
@@ -53,20 +74,43 @@ modalRef!: MdbModalRef<any>;
 
         //arrumar o enum
        
-  this.jogoService.save(this.jogo).subscribe({
-    next: mensagem =>{
-     Swal.fire({
-              title: mensagem,
-              icon: "success",
-              confirmButtonText: "Ok"
-            });
-      this.jogo = new Jogo //limpa o form
-    },
-    error: erro =>{
-      Swal.fire(erro.error,"","error");
-    }
-
-  })
+  if(this.jogo.id>0){
+  
+        this.jogoService.update(this.jogo, this.jogo.id).subscribe({
+          next: mensagem =>{
+         
+          Swal.fire({
+            title: mensagem,
+            icon: "success",
+            confirmButtonText: "Ok",
+  
+          });
+    
+          },
+          error: erro =>{
+            Swal.fire(erro.error, '', 'error');
+          }
+  
+        })
+        
+      }else{
+        this.jogoService.save(this.jogo).subscribe({
+          next: mensagem =>{
+         
+          Swal.fire({
+            title: mensagem,
+            icon: "success",
+            confirmButtonText: "Ok",
+  
+          });
+    
+          },
+          error: erro =>{  
+            Swal.fire(erro.error, '', 'error');
+          }
+  
+        })
+      }
  }
  
  buscarConsoles(){

@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { CidadeService } from '../../../services/cidade.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cidade } from '../../../models/cidade';
 import Swal from 'sweetalert2';
 
@@ -19,7 +19,7 @@ export class CidadeFormComponent {
   rotaAtivida = inject(ActivatedRoute);
   cidadeService = inject(CidadeService);
 
-  constructor(){
+  constructor(private router: Router){
     let id = this.rotaAtivida.snapshot.params['id'];
     if(id > 0){
       this.findByID(id);
@@ -53,7 +53,10 @@ export class CidadeFormComponent {
           icon: "success",
           confirmButtonText: "Ok",
 
-        });
+        }).then(() =>{
+          this.router.navigate(['admin/cidades']);
+
+        })
   
         },
         error: erro =>{
@@ -71,7 +74,10 @@ export class CidadeFormComponent {
           icon: "success",
           confirmButtonText: "Ok",
 
-        });
+        }).then(() =>{
+          this.router.navigate(['admin/cidades']);
+
+        })
   
         },
         error: erro =>{  
