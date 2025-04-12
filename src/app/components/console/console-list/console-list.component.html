@@ -23,12 +23,15 @@
                         <tr>
                             <td>{{console.nome}}</td>
                             <td>{{console.marca}}</td>
+                            <td class="alinharDireita">
+                            @if(esconderBotoes){
+                                <button type = "button" class = "btn btn-primary btn-rounded" mdbRipple (click)="selecionarConsole(console)">Selecionar</button>                            }@else {
+                                <td class="alinharEsquerda"> 
+                                    <a href="admin/console/edit/{{console.id}}" class="btn btn-primary ">Editar</a>
+                                    <button (click)="deleteById(console)" class="btn btn-danger">Deletar</button>
+                                 </td>
+                            }
                             
-                            
-                            <td class="alinharEsquerda"> 
-                                <a href="admin/console/edit/{{console.id}}" class="btn btn-primary ">Editar</a>
-                                <button (click)="deleteById(console)" class="btn btn-danger">Deletar</button>
-                             </td>
                         </tr>
                     }
                    

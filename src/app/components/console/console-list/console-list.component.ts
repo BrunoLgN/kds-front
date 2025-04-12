@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { ConsoleService } from '../../../services/console.service';
 import { Console } from '../../../models/console';
 import Swal from 'sweetalert2';
@@ -11,7 +11,8 @@ import Swal from 'sweetalert2';
   styleUrl: './console-list.component.scss'
 })
 export class ConsoleListComponent {
-
+    @Output("retorno") retorno = new EventEmitter<any>();
+    @Input("esconderBotoes") esconderBotoes: boolean = false
   
     lista: Console[] = [];
         consoleService = inject(ConsoleService);
@@ -58,4 +59,10 @@ export class ConsoleListComponent {
             
             
           }
+
+          selecionarConsole(console: Console): void {
+            // Emite o console selecionado
+            this.retorno.emit(console);  // Aqui estamos emitindo o objeto Console
+          }
+
 }

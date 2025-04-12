@@ -7,8 +7,9 @@ import Swal from 'sweetalert2';
 import { Usuario } from '../../../models/usuario';
 import { Console } from '../../../models/console';
 import { JogoService } from '../../../services/jogo.service';
+import { MdbModalModule, MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { JogoListComponent } from "../jogo-list/jogo-list.component";
 import { ConsoleListComponent } from "../../console/console-list/console-list.component";
-import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 
 
 
@@ -17,13 +18,23 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 @Component({
   selector: 'app-jogo-form',
   standalone: true,
-  imports: [MdbFormsModule, FormsModule, ConsoleListComponent],
+  imports: [MdbFormsModule, FormsModule, JogoListComponent, ConsoleListComponent, MdbModalModule],
   templateUrl: './jogo-form.component.html',
   styleUrl: './jogo-form.component.scss'
 })
 export class JogoFormComponent {
  @Input() jogo : Jogo = new Jogo();
+ @Output() retorno = new EventEmitter<Console>();
+
+
  jogoService = inject(JogoService);
+
+ 
+//imports modal
+modalService = inject(MdbModalService);//para conseguir abrir a modal
+@ViewChild("modalConsoles") modalConsoles!: TemplateRef<any>;
+modalRef!: MdbModalRef<any>;
+
 
 
 
@@ -34,9 +45,11 @@ export class JogoFormComponent {
     let meuUsuario = new Usuario();
     meuUsuario.id = 4;;
     this.jogo.usuario = meuUsuario;
-    //termiino da instanciacao
+    console.log('Enviando Jogo:', this.jogo); // 👈 Isso ajuda!
 
-   
+    if (this.jogo.console && this.jogo.console.id) {
+      this.jogo.console = { id: this.jogo.console.id } as Console;
+    }
 
         //arrumar o enum
        
@@ -55,7 +68,17 @@ export class JogoFormComponent {
 
   })
  }
+ 
+ buscarConsoles(){
+  this.modalRef = this.modalService.open(this.modalConsoles);
 
+ }
+
+ retornoConsole(console: Console){
+  this.jogo.console = console;
+  this.modalRef.close();
+
+ }
 
 
 }

@@ -34,6 +34,19 @@
           <input  mdbInput type="valor" id="typeValor" class="form-control"[(ngModel)]="jogo.valor" name="valor" />
           <label mdbLabel class="form-label" for="typeValor">Valor </label>
         </mdb-form-control>
+
+        <div>
+          @if(jogo.console == null){
+            <button type="button" class="btn btn-primary btn-rounded" mdbRipple (click)="buscarConsoles()">Buscar console</button>
+          }@else {
+            <span class="text-primary">Console: {{jogo.console.nome}}</span>
+
+            <button type="button" class="btn btn-primary btn-rounded" mdbRipple (click)="buscarConsoles()">Trocar console</button>
+          }
+          
+
+          
+        </div>
        
       
        
@@ -61,7 +74,20 @@
 </div>
 
 
+<ng-template #modalConsoles>
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Cadastro de Usuario</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modalRef.close()"
+    ></button>
+  </div>
+  <div class="modal-body">
+
+    <app-console-list [esconderBotoes]="true" (retorno)="retornoConsole($event)"> </app-console-list>
 
 
-
-
+  </div>
+  </ng-template>
