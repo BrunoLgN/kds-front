@@ -40,14 +40,31 @@
             <label mdbLabel class="form-label" for="typePassword">Senha </label>
           </mdb-form-control>
 
-          <mdb-form-control>
-            @if(usuario.cidade == null){
-             <a data-mdb-ripple-init class="btn btn-primary"  role="button" (click)="buscarCidade()">Buscar cidade</a>
-             }@else{
-            <span >Cidade : {{usuario.cidade.nome}} </span>
-            <a data-mdb-ripple-init class="btn btn-primary"  role="button" (click)="buscarCidade()">Alterar cidade</a>
+          <!-- Removido mdb-form-control aqui -->
+          <div class="mb-3">
+            @if (usuario.cidade == null) {
+              <a
+                data-mdb-ripple-init
+                class="btn btn-primary"
+                role="button"
+                (click)="buscarCidade()"
+              >
+                Buscar cidade
+              </a>
+            } @else {
+              <span>Cidade: {{ usuario.cidade.nome }}</span>
+              <a
+                data-mdb-ripple-init
+                class="btn btn-primary ms-2"
+                role="button"
+                (click)="buscarCidade()"
+              >
+                Alterar cidade
+              </a>
             }
-          </mdb-form-control>
+          </div>
+          
+
 
           <mdb-form-control>
             <input  mdbInput type="tel" id="typeTelefone" class="form-control"[(ngModel)]="usuario.telefone" name="telefone" />
@@ -84,4 +101,5 @@
     </div>
     </ng-template>
   
-  
+
+    

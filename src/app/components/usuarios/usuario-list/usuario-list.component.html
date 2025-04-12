@@ -30,7 +30,8 @@
                             <td>{{usuario.cidade.nome}}</td>
                             <td>{{usuario.ranking.nome}}</td>
                             <td class="alinharEsquerda"> 
-                                <a href="cadastroUsuario/{{usuario.id}}" class="btn btn-primary ">Editar</a>
+                                <button (click)="abrirModal(usuario)" class="btn btn-primary">Editar</button>
+
                                 <button (click)="deleteById(usuario)" class="btn btn-danger">Deletar</button>
                              </td>
                         </tr>
@@ -58,7 +59,8 @@
     </div>
     <div class="modal-body">
   
-     <app-usuario-form [usuario]="usuarioEdit" (retorno)="retornoModal($event)"></app-usuario-form>
+        <app-usuario-form [usuario]="usuarioSelecionado" (retorno)="retornoModal($event)"></app-usuario-form>
+
   
     </div>
     </ng-template>
