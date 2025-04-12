@@ -1,1 +1,30 @@
-<p>console-form works!</p>
+<br />
+<div class="container">
+  <div class="row">
+    <div class="col-4"></div>
+
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body centralizar">
+          <h2>Cadastro de consoles</h2>
+
+
+          <form #formulario="ngForm">
+
+            Nome do console:<br>
+            <input required [(ngModel)]="console.nome" name="nome" type="text" class="form-control">
+            Nome do marca:<br>
+            <input required [(ngModel)]="console.marca" name="nome" type="text" class="form-control">
+
+            <br>
+       
+            <button (click)="save()"  [disabled]="!formulario.valid" class="btn btn-success">Salvar</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4"></div>
+  </div>
+</div>

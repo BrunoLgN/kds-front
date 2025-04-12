@@ -15,6 +15,8 @@ import Swal from 'sweetalert2';
 })
 export class CidadeFormComponent {
   cidade: Cidade = new Cidade();
+  router = inject(Router);
+
 
   rotaAtivida = inject(ActivatedRoute);
   cidadeService = inject(CidadeService);
@@ -53,10 +55,7 @@ export class CidadeFormComponent {
           icon: "success",
           confirmButtonText: "Ok",
 
-        }).then(() =>{
-          this.router.navigate(['admin/cidades']);
-
-        })
+        });
   
         },
         error: erro =>{
@@ -74,10 +73,7 @@ export class CidadeFormComponent {
           icon: "success",
           confirmButtonText: "Ok",
 
-        }).then(() =>{
-          this.router.navigate(['admin/cidades']);
-
-        })
+        });
   
         },
         error: erro =>{  

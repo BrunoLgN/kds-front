@@ -27,6 +27,7 @@ export class JogoFormComponent {
  @Input() jogo : Jogo = new Jogo();
  @Output() retorno = new EventEmitter<Console>();
 
+ router = inject(Router);
  rotaAtivida = inject(ActivatedRoute);
 
  jogoService = inject(JogoService);
