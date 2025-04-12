@@ -21,7 +21,7 @@ export class CidadeFormComponent {
   rotaAtivida = inject(ActivatedRoute);
   cidadeService = inject(CidadeService);
 
-  constructor(){
+  constructor(private router: Router){
     let id = this.rotaAtivida.snapshot.params['id'];
     if(id > 0){
       this.findByID(id);
@@ -55,8 +55,6 @@ export class CidadeFormComponent {
           icon: "success",
           confirmButtonText: "Ok",
 
-        }).then(() => {
-          this.router.navigate(['/admin/cidades']); // <-- ajusta conforme sua rota da listagem
         });
   
         },
@@ -75,8 +73,6 @@ export class CidadeFormComponent {
           icon: "success",
           confirmButtonText: "Ok",
 
-        }).then(() => {
-          this.router.navigate(['/admin/cidades']); // <-- ajusta conforme sua rota da listagem
         });
   
         },

@@ -3,12 +3,13 @@ import { Jogo } from '../../../models/jogo';
 import { JogoService } from '../../../services/jogo.service';
 import Swal from 'sweetalert2';
 import { JogoFormComponent } from "../jogo-form/jogo-form.component";
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-jogo-list',
   standalone: true,
-  imports: [JogoFormComponent],
+  imports: [JogoFormComponent, RouterLink],
   templateUrl: './jogo-list.component.html',
   styleUrl: './jogo-list.component.scss'
 })
