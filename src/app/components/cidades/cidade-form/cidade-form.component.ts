@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { CidadeService } from '../../../services/cidade.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cidade } from '../../../models/cidade';
 import Swal from 'sweetalert2';
 
@@ -15,6 +15,8 @@ import Swal from 'sweetalert2';
 })
 export class CidadeFormComponent {
   cidade: Cidade = new Cidade();
+  router = inject(Router);
+
 
   rotaAtivida = inject(ActivatedRoute);
   cidadeService = inject(CidadeService);
@@ -53,6 +55,8 @@ export class CidadeFormComponent {
           icon: "success",
           confirmButtonText: "Ok",
 
+        }).then(() => {
+          this.router.navigate(['/admin/cidades']); // <-- ajusta conforme sua rota da listagem
         });
   
         },
@@ -71,6 +75,8 @@ export class CidadeFormComponent {
           icon: "success",
           confirmButtonText: "Ok",
 
+        }).then(() => {
+          this.router.navigate(['/admin/cidades']); // <-- ajusta conforme sua rota da listagem
         });
   
         },

@@ -26,7 +26,7 @@ export class JogoFormComponent {
  @Input() jogo : Jogo = new Jogo();
  @Output() retorno = new EventEmitter<Console>();
 
-
+ router = inject(Router);
  jogoService = inject(JogoService);
 
  
@@ -67,6 +67,8 @@ modalRef!: MdbModalRef<any>;
     }
 
   })
+
+  
  }
  
  buscarConsoles(){

@@ -13,6 +13,7 @@ import { RankingListComponent } from './components/rankings/ranking-list/ranking
 import { ConsoleListComponent } from './components/console/console-list/console-list.component';
 import { CidadeFormComponent } from './components/cidades/cidade-form/cidade-form.component';
 import { RankingFormComponent } from './components/rankings/ranking-form/ranking-form.component';
+import { ConsoleFormComponent } from './components/console/console-form/console-form.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "login", pathMatch: 'full'},
@@ -26,6 +27,8 @@ export const routes: Routes = [
         {path: "jogos", component: JogoListComponent},
         {path: "rankings", component: RankingListComponent},
         {path: "consoles", component: ConsoleListComponent},
+        {path: "cadastroConsole/:id", component: ConsoleFormComponent},
+        {path: "cadastroConsole", component: ConsoleFormComponent},
         {path: "cadastroCidade", component: CidadeFormComponent},
         { path: "cadastroCidade/:id", component: CidadeFormComponent },
         {path: "cadastroRanking", component: RankingFormComponent},
