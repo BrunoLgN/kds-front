@@ -1,18 +1,22 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, TemplateRef, ViewChild } from '@angular/core';
 import { Jogo } from '../../../models/jogo';
 import { JogoService } from '../../../services/jogo.service';
 import Swal from 'sweetalert2';
+import { JogoFormComponent } from "../jogo-form/jogo-form.component";
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 
 @Component({
   selector: 'app-jogo-list',
   standalone: true,
-  imports: [],
+  imports: [JogoFormComponent],
   templateUrl: './jogo-list.component.html',
   styleUrl: './jogo-list.component.scss'
 })
 export class JogoListComponent {
    lista: Jogo[] = [];
       jogoService = inject(JogoService);
+
+     
   
       constructor(){
         this.findAll()

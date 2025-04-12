@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Output, TemplateRef, ViewChild,  } from '@angular/core';
+import { Component, EventEmitter, inject, Input, input, output, Output, TemplateRef, ViewChild,  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
@@ -7,9 +7,9 @@ import Swal from 'sweetalert2';
 import { Usuario } from '../../../models/usuario';
 import { Console } from '../../../models/console';
 import { JogoService } from '../../../services/jogo.service';
-import { EstadoJogo } from '../../../models/estado-jogo';
 import { ConsoleListComponent } from "../../console/console-list/console-list.component";
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+
 
 
 
@@ -22,8 +22,9 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
   styleUrl: './jogo-form.component.scss'
 })
 export class JogoFormComponent {
- jogo : Jogo = new Jogo();
+ @Input() jogo : Jogo = new Jogo();
  jogoService = inject(JogoService);
+
 
 
 
@@ -35,11 +36,7 @@ export class JogoFormComponent {
     this.jogo.usuario = meuUsuario;
     //termiino da instanciacao
 
-     //instanciando na mao um ibjeto mas tem que ser autoincrement com o id do login
-        let meuConsole = new Console();
-        meuConsole.id = 2;;
-        this.jogo.console = meuConsole;
-        //termiino da instanciacao
+   
 
         //arrumar o enum
        
@@ -58,6 +55,7 @@ export class JogoFormComponent {
 
   })
  }
+
 
 
 }

@@ -12,12 +12,13 @@ import Swal from 'sweetalert2';
 })
 export class ConsoleListComponent {
 
-  @Output("retorno") retorno = new EventEmitter<any>();
+  
     lista: Console[] = [];
         consoleService = inject(ConsoleService);
-      //construtor
+    
         constructor(){
-          this.findAll()
+        this.findAll();
+        
         }
     
         findAll(){
