@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-12 azul">
 
-            <div class="card">
+            <div class="card ">
                 <div class="card-body alinharDiretira">
             <div class="containerInterno">
                 <div class="row">
@@ -40,7 +40,7 @@
                         <tr>
                             <td>{{cidade.nome}}</td>
                             
-                            <td class="alinharDiretira"> 
+                            <td class="alinharDireita"> 
                                 @if(esconderBotoes){
                                     <button tupe = "button" class = "btn btn-primary btn-rounded" mdbRipple (click)="select(cidade)">Selecionar</button>
                                 }
@@ -58,6 +58,9 @@
 
             </div>
         </div>
+        <div class="note note-info mb-3">
+            <strong>Sobre as cidades:</strong> Note que nosso sistema suporta apenas cidades do Parana.
+          </div>
 
         </div>
     </div>

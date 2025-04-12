@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Ranking } from '../../../models/ranking';
 import { RankingService } from '../../../services/ranking.service';
 import Swal from 'sweetalert2';
@@ -12,6 +12,8 @@ import Swal from 'sweetalert2';
   styleUrl: './ranking-list.component.scss'
 })
 export class RankingListComponent {
+  @Input() esconderBotoes : boolean = false; 
+     @Output() retorno = new EventEmitter(); 
     lista: Ranking[] = [];
         rankingService = inject(RankingService);
     

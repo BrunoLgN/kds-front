@@ -2,10 +2,28 @@
 <div class="container">
     <div class="row">
         <div class="col-12 azul">
+            
 
             <div class="card">
                 <div class="card-body alinharEsquerda">
-            <h1>Rankings</h1><br>
+                    <div class="containerInterno">
+                        <div class="row">
+        
+                            <div class="col-11">
+                                <h1>Rankings</h1>
+                            </div>
+                            @if(esconderBotoes == false){<div class="col-1">
+                                <a href="admin/cadastroRanking">
+                                <button type="button" class="btn btn-primary" data-mdb-ripple-init>Novo ranking</button>
+                            </a>
+                            </div>}
+                            
+                            
+        
+                        </div>
+                        
+                    </div>
+          
             
  
                 <table class="table">
@@ -23,7 +41,7 @@
                             <td>{{ranking.nome}}</td>
                           
                            
-                            <td class="alinharEsquerda"> 
+                            <td class="alinharDireita"> 
                                 <a href="admin/ranking/edit/{{ranking.id}}" class="btn btn-primary ">Editar</a>
                                 <button (click)="deleteById(ranking)" class="btn btn-danger">Deletar</button>
                              </td>
@@ -35,6 +53,10 @@
 
             </div>
         </div>
+        <br>
+        <div class="note note-info mb-3">
+            <strong>Sobre os rankings:</strong> Todos os rankings são obtidos conforme trocas ou vendas realizadas, cada rank fornecerá um icone e banner de usuario exclusivo
+          </div>
 
         </div>
     </div>
