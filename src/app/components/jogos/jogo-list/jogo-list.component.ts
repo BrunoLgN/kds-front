@@ -3,7 +3,7 @@ import { Jogo } from '../../../models/jogo';
 import { JogoService } from '../../../services/jogo.service';
 import Swal from 'sweetalert2';
 import { JogoFormComponent } from "../jogo-form/jogo-form.component";
-import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+
 
 @Component({
   selector: 'app-jogo-list',

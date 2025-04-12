@@ -41,7 +41,7 @@ export class RankingFormComponent {
     }
   
     save(){
-      const cidadeParaEnviar = { ...this.ranking };
+      
       
   
       if(this.ranking.id>0){

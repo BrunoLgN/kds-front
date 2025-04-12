@@ -17,12 +17,12 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 @Component({
   selector: 'app-jogo-form',
   standalone: true,
-  imports: [MdbFormsModule, FormsModule, ConsoleListComponent],
+  imports: [MdbFormsModule, FormsModule, ],
   templateUrl: './jogo-form.component.html',
   styleUrl: './jogo-form.component.scss'
 })
 export class JogoFormComponent {
- @Input() jogo : Jogo = new Jogo();
+ jogo : Jogo = new Jogo();
  jogoService = inject(JogoService);
 
 

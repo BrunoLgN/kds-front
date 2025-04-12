@@ -58,11 +58,7 @@ export class UsuarioFormComponent {
 
   save(){
     if(this.usuario.id>0){
-    //instanciando na mao um ibjeto mas tem que ser autoincrement com o id do login
-    let minhacidade = new Cidade();
-    minhacidade.id = 2;;
-    this.usuario.cidade = minhacidade;
-    //termiino da instanciacao
+    
 
     
     this.usuarioService.update(this.usuario, this.usuario.id).subscribe({
@@ -79,10 +75,11 @@ export class UsuarioFormComponent {
   
         },
         error: erro =>{  
+      
           Swal.fire(erro.error, '', 'error');
           this.retorno.emit(`adskfljads`);
         }
-    })
+    });
 
   }else{
 
