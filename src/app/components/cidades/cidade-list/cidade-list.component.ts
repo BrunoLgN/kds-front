@@ -8,7 +8,7 @@ import { ConsoleListComponent } from "../../console/console-list/console-list.co
 @Component({
   selector: 'app-cidade-list',
   standalone: true,
-  imports: [RouterLink, ConsoleListComponent],
+  imports: [RouterLink, ],
   templateUrl: './cidade-list.component.html',
   styleUrl: './cidade-list.component.scss'
 })

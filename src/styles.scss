@@ -8,3 +8,7 @@
   -moz-appearance: none;
   appearance: none;
 }
+
+.swal2-container {
+  z-index: 2000 !important;
+}
