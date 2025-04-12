@@ -15,6 +15,7 @@ import { ConsoleListComponent } from "../../console/console-list/console-list.co
 
 
 
+
 @Component({
   selector: 'app-jogo-form',
   standalone: true,
@@ -27,28 +28,17 @@ export class JogoFormComponent {
  @Output() retorno = new EventEmitter<Console>();
 
  rotaAtivida = inject(ActivatedRoute);
+
  jogoService = inject(JogoService);
 
  constructor(){
   let id = this.rotaAtivida.snapshot.params['id'];
-  if(id > 0){
-    this.findByID(id);
-  }
-
-  
-
- 
-  }
-  findByID(id: number){
-      this.jogoService.findById(id).subscribe({
-        next: retorno =>{      
-          this.jogo = retorno;
-        },
-        error: erro =>{
-          Swal.fire(erro.error, '', 'error');
-        }
-      })
+    if(id > 0){
+      this.findByID(id);
     }
+
+   
+  }
 
  
 //imports modal
@@ -56,7 +46,19 @@ modalService = inject(MdbModalService);//para conseguir abrir a modal
 @ViewChild("modalConsoles") modalConsoles!: TemplateRef<any>;
 modalRef!: MdbModalRef<any>;
 
+findByID(id: number){
+      this.jogoService.findById(id).subscribe({
+        next: retorno =>{      
+          this.jogo = retorno;
+          
 
+        },
+        error: erro =>{
+          Swal.fire(erro.error, '', 'error');
+        }
+      })
+    }
+  
 
 
 

@@ -20,6 +20,7 @@ export const routes: Routes = [
     {path: "admin", component: PrincipalComponent, children:[
         {path: "dashboard", component: DashboardComponent},
         {path: "cadastroUsuario", component: UsuarioFormComponent},
+        {path: "cadastroUsuario/:id", component: UsuarioFormComponent},
         {path: "cadastroJogo", component: JogoFormComponent},
         {path: "cadastroJogo/:id", component: JogoFormComponent},
         {path: "usuarios", component: UsuarioListComponent},
