@@ -4,12 +4,13 @@ import { JogoService } from '../../../services/jogo.service';
 import Swal from 'sweetalert2';
 import { JogoFormComponent } from "../jogo-form/jogo-form.component";
 import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-jogo-list',
   standalone: true,
-  imports: [JogoFormComponent, RouterLink],
+  imports: [JogoFormComponent, RouterLink,FormsModule],
   templateUrl: './jogo-list.component.html',
   styleUrl: './jogo-list.component.scss'
 })
@@ -17,7 +18,7 @@ export class JogoListComponent {
    lista: Jogo[] = [];
       jogoService = inject(JogoService);
 
-     
+      nomeBusca: string = ""; // <-- Campo de busca
   
       constructor(){
         this.findAll()
@@ -33,6 +34,22 @@ export class JogoListComponent {
           }
         });
       }
+
+      buscarPorNome(){
+                  if (!this.nomeBusca || this.nomeBusca.trim() === "") {
+                    this.findAll(); // Se a busca estiver vazia, volta para a lista completa
+                    return;
+                  }
+              
+                  this.jogoService.findByNomeStartingWithIgnoreCase(this.nomeBusca).subscribe({
+                    next: (listaRetornada) => {
+                      this.lista = listaRetornada;
+                    },
+                    error: (erro) => {
+                      Swal.fire(erro.error, "", "error");
+                    }
+                  });
+                }
   
       deleteById(jogo: Jogo){
   

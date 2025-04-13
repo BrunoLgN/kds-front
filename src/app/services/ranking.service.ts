@@ -19,11 +19,11 @@ findAll(): Observable<Ranking[]>{
     return this.http.get<Ranking>(this.API+'/findById/'+id);
   }
 
-  findByNomeStartingWith(nome: string): Observable<Ranking[]>{
+  findByNomeStartingWithIgnoreCase(nome: string): Observable<Ranking[]>{
     let par = new HttpParams()
     .set('nome',nome);
     
-    return this.http.get<Ranking  []>(this.API+'/findByNomeStartingWith', {params: par});
+    return this.http.get<Ranking  []>(this.API+'/findByNomeStartingWithIgnoreCase', {params: par});
   }
 
   deleteById(id: number): Observable<string>{

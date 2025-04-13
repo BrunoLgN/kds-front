@@ -15,7 +15,7 @@ import Swal from 'sweetalert2';
 })
 export class CidadeFormComponent {
   cidade: Cidade = new Cidade();
-  router = inject(Router);
+  
 
 
   rotaAtivida = inject(ActivatedRoute);
