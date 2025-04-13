@@ -26,6 +26,8 @@ export class UsuarioListComponent {
 
   usuarioEdit: Usuario = new Usuario();
 
+  nomeBusca: string = ""; // <-- Campo de busca
+
     lista: Usuario[] = [];
     usuarioService = inject(UsuarioService);
 
@@ -43,6 +45,22 @@ export class UsuarioListComponent {
         }
       });
     }
+
+    buscarPorNome(){
+        if (!this.nomeBusca || this.nomeBusca.trim() === "") {
+          this.findAll(); // Se a busca estiver vazia, volta para a lista completa
+          return;
+        }
+    
+        this.usuarioService.findByNomeStartingWithIgnoreCase(this.nomeBusca).subscribe({
+          next: (listaRetornada) => {
+            this.lista = listaRetornada;
+          },
+          error: (erro) => {
+            Swal.fire(erro.error, "", "error");
+          }
+        });
+      }
 
     deleteById(usuario: Usuario){
 

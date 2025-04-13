@@ -4,6 +4,12 @@
         <div class="col-12 azul">
 
             <div class="card">
+                <div class="card-body alinharDiretira">
+                    <div class="row mb-3">
+                        <div class="col-md-10">
+                            <input [(ngModel)]="nomeBusca" (input)="buscarPorNome()" type="text" class="form-control" placeholder="Buscar por nome..." />
+                        </div>
+                    </div>
                 <div class="card-body alinharEsquerda">
             <h1>Lista de usuario</h1><br>
             

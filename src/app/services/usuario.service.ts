@@ -23,11 +23,11 @@ export class UsuarioService {
     return this.http.get<Usuario>(this.API+'/findById/'+id);
   }
 
-  findByNomeStartingWith(nome: string): Observable<Usuario[]>{
+  findByNomeStartingWithIgnoreCase(nome: string): Observable<Usuario[]>{
     let par = new HttpParams()
     .set('nome',nome);
     
-    return this.http.get<Usuario[]>(this.API+'/findByNomeStartingWith', {params: par});
+    return this.http.get<Usuario[]>(this.API+'/findByNomeStartingWithIgnoreCase', {params: par});
   }
 
   deleteById(id: number): Observable<string>{
