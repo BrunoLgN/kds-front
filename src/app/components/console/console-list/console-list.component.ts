@@ -21,7 +21,7 @@ export class ConsoleListComponent {
         this.findAll();
         
         }
-    
+    /**/
         findAll(){
           this.consoleService.findAll().subscribe({
             next: (listaRetornada) =>{

@@ -7,8 +7,7 @@ import { UsuarioFormComponent } from '../../usuarios/usuario-form/usuario-form.c
 import { FormsModule } from '@angular/forms';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
-
-
+/**/ 
 
 
 @Component({
