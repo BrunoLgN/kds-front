@@ -87,6 +87,8 @@ findByID(id: number){
             icon: "success",
             confirmButtonText: "Ok",
   
+          }).then(() => {
+            this.router.navigate(['admin/cidades']);
           });
     
           },
@@ -105,6 +107,8 @@ findByID(id: number){
             icon: "success",
             confirmButtonText: "Ok",
   
+          }).then(() => {
+            this.router.navigate(['admin/cidades']);
           });
     
           },
