@@ -11,7 +11,7 @@
                 <div class="card-body alinharEsquerda">
             <h1>Jogos</h1><br>
             
- 
+            <a href="admin/cadastroJogo" class="btn btn-primary ">CADASTRAR</a>
                 <table class="table">
                     
                     <thead>
@@ -25,7 +25,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <a href="admin/cadastroJogo" class="btn btn-primary ">CADASTRAR</a>
+                       
                         @for (jogo of lista; track $index) {
                         <tr>
                             <td>{{jogo.nome}}</td>
