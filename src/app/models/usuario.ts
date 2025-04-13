@@ -12,7 +12,7 @@ export class Usuario {
     statusCadastro!: string;
     cidade!: Cidade;
     ranking!: Ranking;//n para 1
-    jogo!: Jogo[];//1 para n
+    jogos!: Jogo[];//1 para n
 
 }
 /* EXEMPLO PROFESSOR

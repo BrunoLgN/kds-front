@@ -85,17 +85,21 @@ export class UsuarioListComponent {
     });
   }
 
-  editUsuario(usuario: Usuario) {
-    this.usuarioEdit = Object.assign({}, usuario);
-    this.modalRef = this.modalService.open(this.modalCadastroUsuario);
-  }
+ 
 
   retornoModal(mensagem:AnyCatcher){
     this.modalRef.close();
     this.findAll();
   }
   
-      
-    }
+
+
+  usuarioSelecionado: Usuario = new Usuario();
+
+  abrirModal(usuario: Usuario) {
+    this.usuarioSelecionado = { ...usuario }; // copia o objeto para evitar mutação direta
+    this.modalRef = this.modalService.open(this.modalCadastroUsuario, { modalClass: 'modal-lg' });
+  }
   
 
+  }

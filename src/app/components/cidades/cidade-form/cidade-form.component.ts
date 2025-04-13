@@ -55,6 +55,8 @@ export class CidadeFormComponent {
           icon: "success",
           confirmButtonText: "Ok",
 
+        }).then(() => {
+          this.router.navigate(['admin/cidades']);
         });
   
         },
@@ -73,6 +75,8 @@ export class CidadeFormComponent {
           icon: "success",
           confirmButtonText: "Ok",
 
+        }).then(() => {
+          this.router.navigate(['admin/cidades']);
         });
   
         },
