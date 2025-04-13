@@ -25,23 +25,24 @@ export class ConsoleFormComponent {
    constructor(){
     let id = this.rotaAtivida.snapshot.params['id'];
     if(id > 0){
-      this.findById(id);
+      this.findByID(id);
     }
 
     
    }
 
-   findById(id: number){
-    this.consoleService.findById(id).subscribe({
-      next: retorno =>{      
-        this.console = retorno;
-      },
-      error: erro =>{
-        Swal.fire(erro.error, '', 'error');
-       
-      }
-    });
-  }
+   findByID(id: number){
+         this.consoleService.findById(id).subscribe({
+           next: retorno =>{      
+             this.console = retorno;
+             
+   
+           },
+           error: erro =>{
+             Swal.fire(erro.error, '', 'error');
+           }
+         })
+       }
    save(){
         
          if(this.console.id>0){

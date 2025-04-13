@@ -3,11 +3,13 @@ import { ConsoleService } from '../../../services/console.service';
 import { Console } from '../../../models/console';
 import Swal from 'sweetalert2';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-console-list',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './console-list.component.html',
   styleUrl: './console-list.component.scss'
 })

@@ -11,7 +11,24 @@
                     </div>
                 </div>
                 <div class="card-body alinharEsquerda">
-            <h1>Consoles</h1><br>
+                    <div class="containerInterno">
+                        <div class="row">
+        
+                            <div class="col-11">
+                                <h1>Consoles</h1>
+                            </div>
+                            @if(esconderBotoes == false){<div class="col-1">
+                                <a href="admin/cadastroConsole">
+                                <button type="button" class="btn btn-primary" data-mdb-ripple-init>Novo Console</button>
+                            </a>
+                            </div>}
+                            
+                            
+        
+                        </div>
+                        
+                    </div>
+           
             
  
                 <table class="table">
@@ -33,7 +50,8 @@
                             @if(esconderBotoes){
                                 <button type = "button" class = "btn btn-primary btn-rounded" mdbRipple (click)="selecionarConsole(console)">Selecionar</button>                            }@else {
                                 <td class="alinharEsquerda"> 
-                                    <a href="admin/console/edit/{{console.id}}" class="btn btn-primary ">Editar</a>
+                                    <a [routerLink]="['/admin/cadastroConsole', console.id]" class="btn btn-primary">Editar</a>
+
                                     <button (click)="deleteById(console)" class="btn btn-danger">Deletar</button>
                                  </td>
                             }
