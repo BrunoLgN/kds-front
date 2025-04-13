@@ -2,17 +2,20 @@ import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { ConsoleService } from '../../../services/console.service';
 import { Console } from '../../../models/console';
 import Swal from 'sweetalert2';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-console-list',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './console-list.component.html',
   styleUrl: './console-list.component.scss'
 })
 export class ConsoleListComponent {
     @Output("retorno") retorno = new EventEmitter<any>();
     @Input("esconderBotoes") esconderBotoes: boolean = false
+
+    nomeBusca: string = ""; // <-- Campo de busca
   
     lista: Console[] = [];
         consoleService = inject(ConsoleService);
@@ -32,6 +35,22 @@ export class ConsoleListComponent {
             }
           });
         }
+
+        buscarPorNome(){
+                    if (!this.nomeBusca || this.nomeBusca.trim() === "") {
+                      this.findAll(); // Se a busca estiver vazia, volta para a lista completa
+                      return;
+                    }
+                
+                    this.consoleService.findByNomeStartingWithIgnoreCase(this.nomeBusca).subscribe({
+                      next: (listaRetornada) => {
+                        this.lista = listaRetornada;
+                      },
+                      error: (erro) => {
+                        Swal.fire(erro.error, "", "error");
+                      }
+                    });
+                  }
     
         deleteById(console: Console){
     

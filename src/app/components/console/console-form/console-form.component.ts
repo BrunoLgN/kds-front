@@ -20,6 +20,8 @@ export class ConsoleFormComponent {
    rotaAtivida = inject(ActivatedRoute);
    consoleService = inject(ConsoleService);
 
+   selectedConsole: string | null = null;
+
    constructor(){
     let id = this.rotaAtivida.snapshot.params['id'];
     if(id > 0){
@@ -38,7 +40,7 @@ export class ConsoleFormComponent {
         Swal.fire(erro.error, '', 'error');
        
       }
-    })
+    });
   }
    save(){
         
@@ -80,4 +82,9 @@ export class ConsoleFormComponent {
            })
          }
        }
+
+       selectConsole(console: string): void {
+        this.selectedConsole = console;
+       
+      }
 }

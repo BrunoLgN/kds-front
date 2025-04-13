@@ -2,18 +2,22 @@ import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Ranking } from '../../../models/ranking';
 import { RankingService } from '../../../services/ranking.service';
 import Swal from 'sweetalert2';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-ranking-list',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './ranking-list.component.html',
   styleUrl: './ranking-list.component.scss'
 })
 export class RankingListComponent {
   @Input() esconderBotoes : boolean = false; 
      @Output() retorno = new EventEmitter(); 
+
+     nomeBusca: string = ""; // <-- Campo de busca
+
     lista: Ranking[] = [];
         rankingService = inject(RankingService);
     
@@ -31,6 +35,22 @@ export class RankingListComponent {
             }
           });
         }
+
+        buscarPorNome(){
+            if (!this.nomeBusca || this.nomeBusca.trim() === "") {
+              this.findAll(); // Se a busca estiver vazia, volta para a lista completa
+              return;
+            }
+        
+            this.rankingService.findByNomeStartingWithIgnoreCase(this.nomeBusca).subscribe({
+              next: (listaRetornada) => {
+                this.lista = listaRetornada;
+              },
+              error: (erro) => {
+                Swal.fire(erro.error, "", "error");
+              }
+            });
+          }
     
         deleteById(ranking: Ranking){
     

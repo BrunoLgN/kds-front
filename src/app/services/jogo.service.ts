@@ -20,11 +20,11 @@ http = inject(HttpClient);
       return this.http.get<Jogo>(this.API+'/findById/'+id);
     }
   
-    findByNomeContainingIgnoreCase(nome: string): Observable<Jogo[]>{
+    findByNomeStartingWithIgnoreCase(nome: string): Observable<Jogo[]>{
       let par = new HttpParams()
       .set('nome',nome);
       
-      return this.http.get<Jogo  []>(this.API+'/findByNomeContainingIgnoreCase', {params: par});
+      return this.http.get<Jogo  []>(this.API+'/findByNomeStartingWithIgnoreCase', {params: par});
     }
     
    //ARRUMAR O FINDBYCONSOLE []
