@@ -5,11 +5,12 @@ import { CidadeService } from '../../../services/cidade.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cidade } from '../../../models/cidade';
 import Swal from 'sweetalert2';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cidade-form',
   standalone: true,
-  imports: [MdbFormsModule, FormsModule],
+  imports: [MdbFormsModule, FormsModule,],
   templateUrl: './cidade-form.component.html',
   styleUrl: './cidade-form.component.scss'
 })

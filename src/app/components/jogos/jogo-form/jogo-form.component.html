@@ -2,74 +2,102 @@
   <div class="row">
     <div class="col-4 ">
       
-      <header >
-          
-          <!-- Jumbotron -->
-          <div class="p-5 text-center bg-body-tertiary">
-            <h1 class="mb-3">KDS</h1>
-            <h4 class="mb-3">Keep Dream Swap</h4>
-            <a data-mdb-ripple-init class="btn btn-primary"  role="button" (click)="save()">Efetuar cadastro</a>
-          </div>
-          <!-- Jumbotron -->
-        </header>
+      <header>
+        <!-- Jumbotron -->
+        <div class="p-5 text-center bg-body-tertiary">
+          <h1 class="mb-3">KDS</h1>
+          <h4 class="mb-3">Keep Dream Swap</h4>
+          <button
+            class="btn btn-primary"
+            role="button"
+            data-mdb-ripple-init
+            (click)="save()"
+            [disabled]="!formulario.valid"
+          >
+            Efetuar cadastro
+          </button>
+        </div>
+        <!-- Jumbotron -->
+      </header>
 
     </div>
     <div class="col-1">
       <div class="vr" style="height: 550px;"></div>
-
     </div>
     <div class="col-7">
       
-      <div class="card gap-3 text-bg-light hover-shadow">
-        <h4 style="text-align: center;">Cadastro de Jogo</h4>
+      <form #formulario="ngForm">
+        <div class="card gap-3 text-bg-light hover-shadow">
+          <h4 style="text-align: center;">Cadastro de Jogo</h4>
 
-      <mdb-form-control>
-          <input  mdbInput type="nome" id="typeNome" class="form-control" [(ngModel)]="jogo.nome" name="nome" />
-          <label mdbLabel class="form-label" for="typeNome">Nome do jogo </label>
-        </mdb-form-control>
+          <mdb-form-control>
+            <input
+              required
+              mdbInput
+              type="nome"
+              id="typeNome"
+              class="form-control"
+              [(ngModel)]="jogo.nome"
+              name="nome"
+            />
+            <label mdbLabel class="form-label" for="typeNome">Nome do jogo</label>
+          </mdb-form-control>
 
-       
+          <mdb-form-control>
+            <input
+              required
+              mdbInput
+              type="valor"
+              id="typeValor"
+              class="form-control"
+              [(ngModel)]="jogo.valor"
+              name="valor"
+            />
+            <label mdbLabel class="form-label" for="typeValor">Valor</label>
+          </mdb-form-control>
 
-        <mdb-form-control>
-          <input  mdbInput type="valor" id="typeValor" class="form-control"[(ngModel)]="jogo.valor" name="valor" />
-          <label mdbLabel class="form-label" for="typeValor">Valor </label>
-        </mdb-form-control>
+          <div>
+            @if(jogo.console == null){
+              <button
+                type="button"
+                class="btn btn-primary btn-rounded"
+                mdbRipple
+                (click)="buscarConsoles()"
+              >
+                Buscar console
+              </button>
+            }@else {
+              <span class="text-primary">Console: {{jogo.console.nome}}</span>
+              <button
+                type="button"
+                class="btn btn-primary btn-rounded"
+                mdbRipple
+                (click)="buscarConsoles()"
+              >
+                Trocar console
+              </button>
+            }
+          </div>
 
-        <div>
-          @if(jogo.console == null){
-            <button type="button" class="btn btn-primary btn-rounded" mdbRipple (click)="buscarConsoles()">Buscar console</button>
-          }@else {
-            <span class="text-primary">Console: {{jogo.console.nome}}</span>
-
-            <button type="button" class="btn btn-primary btn-rounded" mdbRipple (click)="buscarConsoles()">Trocar console</button>
-          }
-          
-
-          
+          <div class="mb-3">
+            <label required for="estadoJogo" class="form-label">Estado do Jogo:</label>
+            <select
+              required
+              id="estadoJogo"
+              class="form-select"
+              [(ngModel)]="jogo.estadoJogo"
+              name="estadoJogo"
+            >
+              <option [ngValue]="'NOVO'">Novo</option>
+              <option [ngValue]="'USADO'">Usado</option>
+              <option [ngValue]="'RECONDICIONADO'">Recondicionado</option>
+            </select>
+          </div>
         </div>
-       
-      
-       
-
-    
-
-
-        <div class="mb-3">
-          <label for="estadoJogo" class="form-label">Estado do Jogo:</label>
-          <select id="estadoJogo" class="form-select" [(ngModel)]="jogo.estadoJogo" name="estadoJogo">
-            <option [ngValue]="'NOVO'">Novo</option>
-            <option [ngValue]="'USADO'">Usado</option>
-            <option [ngValue]="'RECONDICIONADO'">Recondicionado</option>
-          </select>
-        </div>
-
+      </form>
     </div>
-   
-    
   </div>
-  
 </div>
-
 
 <ng-template #modalConsoles>
   <div class="modal-header">
@@ -82,9 +110,10 @@
     ></button>
   </div>
   <div class="modal-body">
-
-    <app-console-list [esconderBotoes]="true" (retorno)="retornoConsole($event)"> </app-console-list>
-
-
+    <app-console-list
+      [esconderBotoes]="true"
+      (retorno)="retornoConsole($event)"
+    >
+    </app-console-list>
   </div>
-  </ng-template>
+</ng-template>
