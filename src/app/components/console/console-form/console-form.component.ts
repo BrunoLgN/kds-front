@@ -56,8 +56,10 @@ export class ConsoleFormComponent {
                icon: "success",
                confirmButtonText: "Ok",
      
+              }).then(() => {
+                this.router.navigate(['admin/consoles']);
              });
-       
+             
              },
              error: erro =>{
                Swal.fire(erro.error, '', 'error');
@@ -73,7 +75,8 @@ export class ConsoleFormComponent {
                title: mensagem,
                icon: "success",
                confirmButtonText: "Ok",
-     
+              }).then(() => {
+                this.router.navigate(['admin/consoles']);
              });
        
              },

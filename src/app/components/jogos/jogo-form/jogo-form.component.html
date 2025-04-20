@@ -54,16 +54,13 @@
     
 
 
-        <mdb-form-control>
-          <div class="mb-3">
-            <label for="estadoJogo" class="form-label">Estado do Jogo:</label>
-            <select id="estadoJogo" class="form-select" [(ngModel)]="jogo.estadoJogo" name="estadoJogo">
-              <option [ngValue]="'NOVO'">Novo</option>
-              <option [ngValue]="'USADO'">Usado</option>
-              <option [ngValue]="'RECONDICIONADO'">Recondicionado</option>
-            </select>
-          </div>
-        </mdb-form-control>
+        <div class="mb-3">
+          <label for="estadoJogo" class="form-label">Estado do Jogo:</label>
+          <select id="estadoJogo" class="form-select" [(ngModel)]="jogo.estadoJogo" name="estadoJogo">
+            <option [ngValue]="'NOVO'">Novo</option>
+            <option [ngValue]="'USADO'">Usado</option>
+            <option [ngValue]="'RECONDICIONADO'">Recondicionado</option>
+          </select>
         </div>
 
     </div>

@@ -28,6 +28,12 @@ http = inject(HttpClient);
     }
     
    //ARRUMAR O FINDBYCONSOLE []
+
+   findByConsole(consoleId: number): Observable<Jogo[]> {
+    return this.http.get<Jogo[]>(this.API+"/findByConsole", {
+      params: { consoleId: consoleId.toString() }
+    });
+  }
   
    deleteById(id: number): Observable<string>{
     return this.http.delete<string>(this.API+'/delete/'+id, {responseType: 'text' as 'json'});

@@ -1,76 +1,87 @@
-
 <div class="container">
     <div class="row">
-      <div class="col-md">
-        <br>
-        <div class="text-center">
-        <button type="button" class="btn btn-outline-dark me-5" data-mdb-ripple-init data-mdb-ripple-color="dark">rpg</button>
-        <button type="button" class="btn btn-outline-dark me-5" data-mdb-ripple-init data-mdb-ripple-color="dark">mmo</button>
-        <button type="button" class="btn btn-outline-dark me-5" data-mdb-ripple-init data-mdb-ripple-color="dark">aventura</button>
-        <button type="button" class="btn btn-outline-dark me-5" data-mdb-ripple-init data-mdb-ripple-color="dark">ação</button>
-        <button type="button" class="btn btn-outline-dark me-5" data-mdb-ripple-init data-mdb-ripple-color="dark">moba</button>
-        <button type="button" class="btn btn-outline-dark me-5" data-mdb-ripple-init data-mdb-ripple-color="dark">fps</button>
-        <button type="button" class="btn btn-outline-dark me-5" data-mdb-ripple-init data-mdb-ripple-color="dark">horror</button>
-        <button type="button" class="btn btn-outline-dark me-5" data-mdb-ripple-init data-mdb-ripple-color="dark">esporte</button>
-        <button type="button" class="btn btn-outline-dark me-5" data-mdb-ripple-init data-mdb-ripple-color="dark">Dark</button>
-        </div>
-        <br>
-        <div>
-            <h3>Filtre seu console</h3>
-            
-        </div>
-        <div class="container2">
-            <div class="row">
-                <div class="col-3 ">
-                    <div class="card" style="width: 18rem;">
-                        <img src="ps4.jpg" class="card-img-top" alt="Sunset Over the Sea"/>
-                        <div class="card-body ">
-                        <p class="card-text">Playstation 4</p>
+        <div class="col-md">
+            <br>
+            <div class="text-center">
+                <button type="button" class="btn btn-outline-dark me-5" data-mdb-ripple-init data-mdb-ripple-color="dark">rpg</button>
+                <button type="button" class="btn btn-outline-dark me-5" data-mdb-ripple-init data-mdb-ripple-color="dark">mmo</button>
+                <button type="button" class="btn btn-outline-dark me-5" data-mdb-ripple-init data-mdb-ripple-color="dark">aventura</button>
+                <button type="button" class="btn btn-outline-dark me-5" data-mdb-ripple-init data-mdb-ripple-color="dark">ação</button>
+                <button type="button" class="btn btn-outline-dark me-5" data-mdb-ripple-init data-mdb-ripple-color="dark">moba</button>
+                <button type="button" class="btn btn-outline-dark me-5" data-mdb-ripple-init data-mdb-ripple-color="dark">fps</button>
+                <button type="button" class="btn btn-outline-dark me-5" data-mdb-ripple-init data-mdb-ripple-color="dark">horror</button>
+                <button type="button" class="btn btn-outline-dark me-5" data-mdb-ripple-init data-mdb-ripple-color="dark">esporte</button>
+                <button type="button" class="btn btn-outline-dark me-5" data-mdb-ripple-init data-mdb-ripple-color="dark">Dark</button>
+            </div>
+            <br>
+            <div>
+                <h3>Filtre seu console</h3>
+            </div>
+
+            <div class="container2">
+                <div class="row">
+                    <div class="col-3" (click)="filtrarPorConsole(2)">
+                        <div class="card" style="width: 18rem;">
+                            <img src="ps4.jpg" class="card-img-top" alt="Sunset Over the Sea"/>
+                            <div class="card-body">
+                                <p class="card-text">Playstation 4</p>
+                            </div>
                         </div>
-                        
-                        
                     </div>
-                </div>
-                <div class="col-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="Xbox_one_logo.svg.png" class="card-img-top" alt="Sunset Over the Sea"/>
-                        <div class="card-body">
-                        <p class="card-text">Xbox One</p>
+                    <div class="col-3"(click)="filtrarPorConsole(3)">
+                        <div class="card" style="width: 18rem;">
+                            <img src="Xbox_one_logo.svg.png" class="card-img-top" alt="Sunset Over the Sea"/>
+                            <div class="card-body">
+                                <p class="card-text">Xbox One</p>
+                            </div>
                         </div>
-                        
-                        
                     </div>
-                </div>
-                <div class="col-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="ps5.jpg" class="card-img-top" alt="Sunset Over the Sea"/>
-                        <div class="card-body">
-                        <p class="card-text">Playstation 5</p>
+                    <div class="col-3"(click)="filtrarPorConsole(15)">
+                        <div class="card" style="width: 18rem;">
+                            <img src="ps5.jpg" class="card-img-top" alt="Sunset Over the Sea"/>
+                            <div class="card-body">
+                                <p class="card-text">Playstation 5</p>
+                            </div>
                         </div>
-                        
-                        
                     </div>
-                </div>
-                <div class="col-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="wii.gif" class="card-img-top" alt="Sunset Over the Sea"/>
-                        <div class="card-body">
-                        <p class="card-text">Nintendo Wii</p>
+                    <div class="col-3"(click)="filtrarPorConsole(11)">
+                        <div class="card" style="width: 18rem;">
+                            <img src="wii.gif" class="card-img-top" alt="Sunset Over the Sea"/>
+                            <div class="card-body">
+                                <p class="card-text">Nintendo Wii</p>
+                            </div>
                         </div>
-                        
-                        
                     </div>
                 </div>
             </div>
-        </div>
+
+            <div class="d-flex justify-content-end align-items-center mb-3 mt-4 me-4">
+                <div class="text-end">
+                  <small class="text-muted d-block">Quer se afiliar a nós?</small>
+                  <small class="text-muted d-block mb-1">Publique seu jogo agora mesmo!</small>
+                  <button class="btn btn-outline-primary btn-sm" (click)="cadastrarjogo()" mdbRipple>
+                    Publicar Jogo
+                  </button>
+                </div>
+              </div>
+
+            <div class="container my-5">
+                <div class="row g-4 justify-content-center">
+                  <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let jogo of lista">
+                    <div class="card h-100 shadow-sm rounded-4">
+                    <!--<img src="ps4.jpg" class="card-img-top rounded-top-4" alt="Imagem do jogo">-->  
+                      <div class="card-body">
+                        <h5 class="card-title fw-bold">{{jogo.nome}}</h5>
+                        <p class="card-text mb-1"><strong>Estado:</strong> {{jogo.estadoJogo || 'Não informado'}}</p>
+                        <p class="card-text mb-1"><strong>Valor:</strong> R$ {{jogo.valor}}</p>
+                        <p class="card-text"><strong>Console:</strong> {{jogo.console.nome}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
         
-        
-        <div>
-            <br>
-            <br>
-            <button class="me-3" (click)="cadastrarjogo()" type="button" mdbRipple>CADASTRAR JOGO</button>
         </div>
-      </div>
-      
     </div>
-  </div>
+</div>

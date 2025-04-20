@@ -19,7 +19,7 @@ import { ConsoleListComponent } from "../../console/console-list/console-list.co
 @Component({
   selector: 'app-jogo-form',
   standalone: true,
-  imports: [MdbFormsModule, FormsModule, JogoListComponent, ConsoleListComponent, MdbModalModule],
+  imports: [MdbFormsModule, FormsModule,  ConsoleListComponent, MdbModalModule],
   templateUrl: './jogo-form.component.html',
   styleUrl: './jogo-form.component.scss'
 })
