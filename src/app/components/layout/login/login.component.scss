@@ -2,7 +2,38 @@
     color: black;
 }
 
-h1{
-    color: rgb(0, 0, 0);
-    margin-top: 90px;
+button{
+    margin: 2px;
+    width: 160px;
+}
+
+img{
+  width: 140px;
+  height: 80px;
+  
+}
+.alinharCentro{
+    text-align: center;
+}
+
+.semMargem{
+    margin: 0%;
+}
+
+.botaoCadastro{
+    border: 0.5px solid white;
+    
+}
+
+.card{
+    height: 600px;
+    background-color: #210d46;
+   margin-top: 50px;
+}
+
+.branco{
+    color: #bfb6cf;
+}
+body{
+    background-color: #bfb6cf;
 }

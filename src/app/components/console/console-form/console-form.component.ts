@@ -24,6 +24,7 @@ export class ConsoleFormComponent {
 
    constructor(){
     let id = this.rotaAtivida.snapshot.params['id'];
+
     if(id > 0){
       this.findByID(id);
     }

@@ -2,13 +2,9 @@
 <div class="container">
   
   <div class="row">
-    <div>
-        
-      <h1 class="text-center">Iniciar Sessão</h1>
-      
-    </div>
+    
     <div class="d-flex align-items-center justify-content-center"
-    style="height: 500px;">
+    >
 
     
     
@@ -18,29 +14,37 @@
       
       <div class="card d-flex" style="width: 400px;">
         <div class="card-body d-grid gap-0.1">
-          
-          <div class="m-3">
+            
+          <div class="m-3   alinharCentro semMargem">
+            <img src="logo-sistema.png" alt="">
+          </div>
+          <div class="branco alinharCentro">
+            <h3>Já possui uma conta ?</h3>
+            
+            <p>Faça seu login e acesse o sistema</p>
+          </div>
+         
+          <div class="m-3  ">
             
             <mdb-form-control>
-              <input [(ngModel)]="login.username" mdbInput type="email" id="typeEmail" class="form-control" />
-              <label mdbLabel class="form-label" for="typeEmail">Email </label>
+              <input [(ngModel)]="login.username" mdbInput type="email" id="typeEmail" class="form-control" style="background-color: #120527;" />
+              <label mdbLabel class="form-label" for="typeEmail" style="color: #bfb6cf; font-size: small;">Digite seu email </label>
             </mdb-form-control>
-            </div>
-      
-            <div class="m-3">
+            <br>
             <mdb-form-control>
               <input (keyup.enter)="logar()" [(ngModel)]="login.password" mdbInput type="password" id="senha"
-                    class="form-control" />
-                  <label mdbLabel class="form-label" for="senha">Senha:</label>
+                    class="form-control" style="background-color: #120527;"/>
+                  <label mdbLabel class="form-label " for="senha" style="color: #bfb6cf; font-size: small;">Digite sua senha</label>
                 </mdb-form-control>
             </div>
       
             <div class="text-center">
-            <button (click)="logar()" type="button" class="btn btn-success" mdbRipple>Login</button>
-            <div class="text-center mt-4">
-              <span>Não tem conta? </span>
-              <a (click)="cadastroUsuario()" class="text-primary" style="cursor: pointer;">Registre-se</a>
-            </div>
+            
+            <button (click)="logar()" type="button" class="btn" mdbRipple style="color:white; background-color: #f27359;">Acessar</button>
+            
+            
+            <button (click)="cadastroUsuario()" type="button" class="btn botaoCadastro" mdbRipple style="color:white; background-color: #210d46; border-style: solid;">Cadastrar</button>
+          
             
         </div>
       </div>

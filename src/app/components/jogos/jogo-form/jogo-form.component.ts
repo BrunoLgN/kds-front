@@ -88,7 +88,7 @@ findByID(id: number){
             confirmButtonText: "Ok",
   
           }).then(() => {
-            this.router.navigate(['admin/cidades']);
+            this.router.navigate(['admin/jogos']);
           });
     
           },
@@ -108,7 +108,7 @@ findByID(id: number){
             confirmButtonText: "Ok",
   
           }).then(() => {
-            this.router.navigate(['admin/cidades']);
+            this.router.navigate(['admin/jogos']);
           });
     
           },
