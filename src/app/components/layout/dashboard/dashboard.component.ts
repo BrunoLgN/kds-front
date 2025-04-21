@@ -4,6 +4,8 @@ import { JogoService } from '../../../services/jogo.service';  // Importe o serv
 import { Jogo } from '../../../models/jogo'; // Importe o modelo de Jogo
 import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
+import { CategoriaService } from '../../../services/categoria.service';
+import { Categoria } from '../../../models/categoria';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,12 +17,17 @@ import { CommonModule } from '@angular/common';
 export class DashboardComponent {
   
   router = inject(Router);
-  jogoService = inject(JogoService);  // Injeta o serviço de jogos
+  jogoService = inject(JogoService); 
+  categoriaService = inject(CategoriaService); // Injeta o serviço de jogos
   lista: Jogo[] = [];  // Lista de jogos a ser exibida
+  categorias: Categoria[] = [];  // Lista de categorias a ser exibida
+  categoriaSelecionada: string = '';  // Variável para armazenar a categoria selecionada
+
 
   // Construtor
   constructor() {
     this.findAll(); // Carrega todos os jogos ao inicializar o componente
+    this.carregarCategorias();
   }
 
   // Método para buscar todos os jogos
@@ -48,4 +55,19 @@ export class DashboardComponent {
   cadastrarjogo() {
     this.router.navigate(['admin/cadastroJogo']);
   }
+
+  carregarCategorias() {
+    this.categoriaService.findAll().subscribe({
+      next: (categoriasRetornadas) => {
+        this.categorias = categoriasRetornadas;  // Atribui as categorias à lista
+      },
+      error: (erro) => {
+        console.error('Erro ao carregar categorias', erro);  // Exibe erro no console
+      }
+    });
+  }
+  
+  
+ 
+
 }

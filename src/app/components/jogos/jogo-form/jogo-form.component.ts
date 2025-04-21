@@ -131,5 +131,12 @@ findByID(id: number){
 
  }
 
+  selectedFile!: File;
+
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+
+
 
 }

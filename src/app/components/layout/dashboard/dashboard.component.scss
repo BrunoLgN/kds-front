@@ -23,4 +23,27 @@
 
   
 }
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: white !important;
+}
+
+body > .container {
+  min-height: 100vh; /* 100% da altura da viewport */
+}
+
+.botao-laranja {
+  background: linear-gradient(to right, #e75262, #f67f57);
+  color: white;
+  
+}
+button{
+  
+}
+
+
+
+
 

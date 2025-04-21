@@ -9,4 +9,5 @@ export class Jogo {
     valor!:number;
     usuario!: Usuario;//n para 1
     console!: Console//n para 1
+    imagemUrl!: string;
 }
