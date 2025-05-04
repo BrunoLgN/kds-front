@@ -18,6 +18,11 @@
           </mdb-form-control>
 
           <mdb-form-control>
+            <input required mdbInput type="text" id="typeNome" class="form-control" [(ngModel)]="usuario.username" name="nome" />
+            <label mdbLabel class="form-label" for="typeNome">Username </label>
+          </mdb-form-control>
+
+          <mdb-form-control>
             <input required mdbInput type="text" id="typeCpf" class="form-control" [(ngModel)]="usuario.cpf" name="cpf"/>
             <label mdbLabel class="form-label" for="typeCpf">CPF </label>
           </mdb-form-control>
@@ -28,7 +33,7 @@
           </mdb-form-control>
 
           <mdb-form-control>
-            <input required mdbInput type="password" id="typePassword" class="form-control" [(ngModel)]="usuario.senha" name="senha" />
+            <input required mdbInput type="password" id="typePassword" class="form-control" [(ngModel)]="usuario.password" name="password" />
             <label mdbLabel class="form-label" for="typePassword">Senha </label>
           </mdb-form-control>
 

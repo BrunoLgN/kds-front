@@ -1,11 +1,13 @@
 import { Component, inject, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
-import { Login } from '../../../models/login';
+
 import { FormsModule } from '@angular/forms';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { MdbModalModule, MdbModalRef, MdbModalService,  } from 'mdb-angular-ui-kit/modal';
 import { UsuarioFormComponent } from '../../usuarios/usuario-form/usuario-form.component';
+import { LoginService } from '../../../auth/login.service';
+import { Login } from '../../../auth/login';
 
 
 @Component({
@@ -24,17 +26,31 @@ export class LoginComponent {
   @ViewChild("modalCadastroUsuario") modalCadastroUsuario!: TemplateRef<any>;
   modalRef!: MdbModalRef<any>;
 
-
+  loginService = inject(LoginService);
   login: Login = new Login();
   router = inject(Router);
 
+  constructor(){
+    this.loginService.removerToken();
+  }
 
   logar() {
-    if (this.login.username == 'admin' && this.login.password == 'admin') {
-      this.gerarToast().fire({ icon: "success", title: "Seja bem-vindo!" });
-      this.router.navigate(['admin/dashboard']);
-    } else
-      Swal.fire('Usuário ou senha incorretos!', '', 'error');
+
+    this.loginService.logar(this.login).subscribe({
+      next: token =>{
+        if(token){
+          this.loginService.addToken(token);
+          this.router.navigate(['/admin/dashboard'])
+        }else{
+          alert("Usuario ou senha incorretos")
+        }
+      },
+      error: erro =>{
+        alert('deu erro');
+      }
+    });
+
+    
   }
 
   gerarToast() {

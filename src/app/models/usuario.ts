@@ -7,17 +7,13 @@ export class Usuario {
     nome!: string;
     cpf!: string;
     email!: string;
-    senha!: string;
+    username!: string;
+    password!: string;
     telefone !: string;
     statusCadastro!: string;
     cidade!: Cidade;
     ranking!: Ranking;//n para 1
     jogos!: Jogo[];//1 para n
+    role!: string;
 
 }
-/* EXEMPLO PROFESSOR
-id!: number;
-nome!: string;
-modelo!: string;
-marca!: Marca; //N PARA 1
-acessorios!: Acessorio[]; // N PARA N*/
