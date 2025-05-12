@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
+import { LoginService } from '../../../auth/login.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,5 +11,9 @@ import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
   styleUrl: './menu.component.scss'
 })
 export class MenuComponent {
+
+  constructor(public loginService: LoginService) {
+    
+  }
 
 }

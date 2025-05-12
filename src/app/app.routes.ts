@@ -14,10 +14,12 @@ import { ConsoleListComponent } from './components/console/console-list/console-
 import { CidadeFormComponent } from './components/cidades/cidade-form/cidade-form.component';
 import { RankingFormComponent } from './components/rankings/ranking-form/ranking-form.component';
 import { ConsoleFormComponent } from './components/console/console-form/console-form.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "login", pathMatch: 'full'},
     {path: "login", component: LoginComponent},
+    {path: "chat", component: ChatComponent},
     {path: "admin", component: PrincipalComponent, children:[
         {path: "dashboard", component: DashboardComponent},
         {path: "cadastroUsuario", component: UsuarioFormComponent},
@@ -34,7 +36,8 @@ export const routes: Routes = [
         {path: "cadastroCidade", component: CidadeFormComponent},
         { path: "cadastroCidade/:id", component: CidadeFormComponent },
         {path: "cadastroRanking", component: RankingFormComponent},
-        { path: "cadastroRanking/:id", component: RankingFormComponent }
+        { path: "cadastroRanking/:id", component: RankingFormComponent },
+        
 
         
 
