@@ -6,14 +6,29 @@ export const adminGuard: CanActivateFn = (route, state) => {
   const loginService = inject(LoginService);
   const router = inject(Router);
 
-  const url = state.url;
+  // Lista de URLs protegidas apenas para ROLE_ADMIN
+const adminProtectedRoutes = [
+  '/admin/rankings',
+  '/admin/cadastroUsuario',
+  '/admin/cadastroUsuario/',
+  '/admin/cidades',
+  '/admin/cadastroConsole',
+  '/admin/cadastroConsole/',
+  '/admin/cadastroCidade',
+  '/admin/cadastroCidade/',
+  '/admin/cadastroRanking',
+  '/admin/cadastroRanking/'
+];
 
-  // Protege rota de rankings apenas para ROLE_ADMIN
-  if (url.startsWith('/admin/rankings') && !loginService.hasPermission('ROLE_ADMIN')) {
-    alert('Você não tem permissão para acessar esta página.');
-    router.navigate(['/admin/dashboard']);
-    return false;
-  }
+// Verifica se a URL corresponde a alguma das rotas protegidas
+const isProtectedRoute = adminProtectedRoutes.some(route => state.url.startsWith(route));
 
-  return true;
+if (isProtectedRoute && !loginService.hasPermission('ROLE_ADMIN')) {
+  alert('Você não tem permissão para acessar esta página.');
+  router.navigate(['/admin/dashboard']);
+  return false;
+}
+
+return true;
+
 };
