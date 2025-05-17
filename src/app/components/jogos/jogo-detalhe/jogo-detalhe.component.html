@@ -1,0 +1,41 @@
+<div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card shadow rounded-4 p-4 detalhe-card">
+          <div class="card-body">
+            <h2 class="mb-4 text-center fw-bold">Detalhes do Jogo</h2>
+  
+            <div class="mb-3">
+              <strong>Nome:</strong>
+              <p>{{ jogo.nome }}</p>
+            </div>
+  
+            <div class="mb-3">
+              <strong>Estado:</strong>
+              <p>{{ jogo.estadoJogo }}</p>
+            </div>
+  
+            <div class="mb-3">
+              <strong>Valor:</strong>
+              <p>R$ {{ jogo.valor }}</p>
+            </div>
+  
+            <div class="mb-3">
+              <strong>Usuário:</strong>
+              <p>{{ jogo.usuario.nome }}</p>
+            </div>
+  
+            <div class="mb-3">
+              <strong>Console:</strong>
+              <p>{{ jogo.console.nome }}</p>
+            </div>
+  
+            <div class="text-center mt-4">
+              <a routerLink="/admin/dashboard" class="btn btn-secondary">Voltar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -16,6 +16,7 @@ import { RankingFormComponent } from './components/rankings/ranking-form/ranking
 import { ConsoleFormComponent } from './components/console/console-form/console-form.component';
 
 import { adminGuard } from './auth/guard.guard';
+import { JogoDetalheComponent } from './components/jogos/jogo-detalhe/jogo-detalhe.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "login", pathMatch: 'full'},
@@ -38,7 +39,7 @@ export const routes: Routes = [
         { path: "cadastroCidade/:id", component: CidadeFormComponent },
         {path: "cadastroRanking", component: RankingFormComponent},
         { path: "cadastroRanking/:id", component: RankingFormComponent },
-        
+        {path: "jogoDetalhe/:id", component: JogoDetalheComponent},
 
         
 

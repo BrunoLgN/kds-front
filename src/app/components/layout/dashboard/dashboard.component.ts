@@ -67,7 +67,9 @@ export class DashboardComponent {
     });
   }
   
-  
+  irParaDetalhe(id: number){
+    this.router.navigate(["/admin/jogoDetalhe",id]);
+  }
  
 
 }

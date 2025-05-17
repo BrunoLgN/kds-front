@@ -1,0 +1,20 @@
+.detalhe-card {
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+  }
+  
+  .detalhe-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-body p {
+    margin-bottom: 0;
+    font-size: 1.05rem;
+  }
+  
+  .card-body strong {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  
