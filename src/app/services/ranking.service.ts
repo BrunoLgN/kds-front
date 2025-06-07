@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Ranking } from '../models/ranking';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Ranking } from '../models/ranking';
 export class RankingService {
 http = inject(HttpClient);
 
-  API = 'http://localhost:8080/api/ranking';
+  API = environment.SERVIDOR+'/api/ranking';
   constructor() { }
 findAll(): Observable<Ranking[]>{
     return this.http.get<Ranking[]>(this.API+'/findAll');

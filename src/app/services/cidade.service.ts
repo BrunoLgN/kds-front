@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cidade } from '../models/cidade';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class CidadeService {
 
    http = inject(HttpClient);
     
-      API = 'http://localhost:8080/api/cidade';
+      API = environment.SERVIDOR+'/api/cidade';
 
   constructor() { }
 

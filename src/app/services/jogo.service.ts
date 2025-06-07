@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Jogo } from '../models/jogo';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Jogo } from '../models/jogo';
 export class JogoService {
 http = inject(HttpClient);
 
-  API = 'http://localhost:8080/api/jogo';
+  API = environment.SERVIDOR+'/api/jogo';
   constructor() { }
 
     findAll(): Observable<Jogo[]>{
