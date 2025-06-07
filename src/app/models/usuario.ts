@@ -15,5 +15,6 @@ export class Usuario {
     ranking!: Ranking;//n para 1
     jogos!: Jogo[];//1 para n
     role!: string;
+    connected!: string;
 
 }

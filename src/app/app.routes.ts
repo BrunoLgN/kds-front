@@ -17,6 +17,7 @@ import { ConsoleFormComponent } from './components/console/console-form/console-
 
 import { adminGuard } from './auth/guard.guard';
 import { JogoDetalheComponent } from './components/jogos/jogo-detalhe/jogo-detalhe.component';
+import { MessageComponent } from 'stream-chat-angular';
 
 export const routes: Routes = [
     {path: "", redirectTo: "login", pathMatch: 'full'},
@@ -40,7 +41,13 @@ export const routes: Routes = [
         {path: "cadastroRanking", component: RankingFormComponent},
         { path: "cadastroRanking/:id", component: RankingFormComponent },
         {path: "jogoDetalhe/:id", component: JogoDetalheComponent},
-
+         {
+        path: "chat",
+        loadComponent: () =>
+          import('./components/chat/messages/messages.component').then(
+            (m) => m.MessagesComponent
+          ),
+      }
         
 
         

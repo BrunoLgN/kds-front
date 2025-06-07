@@ -41,5 +41,25 @@ export class UsuarioService {
   update(usuario: Usuario, id: number): Observable<string> {
     return this.http.put<string>(this.API+'/update/'+id, usuario, {responseType: 'text' as 'json'});  
   }
+
+  API2 = 'http://localhost:8080/api/connection';
+
+  login(user: Usuario): Observable<string> {
+    return this.http.post<string>(`${this.API2}/login`, user, {
+      
+      responseType: 'text' as 'json'
+    });
+  }
+
+  logout(user: Usuario): Observable<string> {
+    return this.http.post<string>(`${this.API2}/logout`, user, {
+      
+      responseType: 'text' as 'json'
+    });
+  }
+
+  findUsers(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(`${this.API2}/listUsers`);
+  }
   
 }

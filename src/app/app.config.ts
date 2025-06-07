@@ -6,6 +6,9 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { meuhttpInterceptor } from './auth/http-interceptor.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
+import { NgxFloatUiModule } from 'ngx-float-ui';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,6 +16,10 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimations(),
     provideHttpClient(withInterceptors([meuhttpInterceptor])),
-    [provideZoneChangeDetection({ eventCoalescing: true }), importProvidersFrom(TranslateModule.forRoot())]
+    provideAnimationsAsync(),
+    importProvidersFrom(
+      TranslateModule.forRoot(),
+      NgxFloatUiModule // 👉 use direto, sem forRoot()
+    )
   ]
 };
