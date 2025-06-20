@@ -3,7 +3,8 @@ import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Jogo } from '../models/jogo';
 import { environment } from '../../environments/environment';
-
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { Pagina } from '../models/pagina';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,9 +14,9 @@ http = inject(HttpClient);
   API = environment.SERVIDOR+'/api/jogo';
   constructor() { }
 
-    findAll(): Observable<Jogo[]>{
-      return this.http.get<Jogo[]>(this.API+'/findAll');
-    }
+    findAll(numPaginaAtual: number): Observable<Pagina>{ 
+    return this.http.get<Pagina>(this.API+'/findAll/'+numPaginaAtual); 
+  } 
   
     findById(id: number): Observable<Jogo>{
       return this.http.get<Jogo>(this.API+'/findById/'+id);
