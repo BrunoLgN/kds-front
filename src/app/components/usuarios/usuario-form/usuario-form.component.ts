@@ -64,7 +64,7 @@ export class UsuarioFormComponent {
   save() {
       // Verifica e envia apenas os IDs de cidade e ranking
       console.log("Dados do usuário antes de salvar:", this.usuario);  // Aqui você pode ver os dados do usuário antes de enviar.
-      this.usuario.role = 'USER';
+      this.usuario.role = 'ROLE_USER';
       if (this.usuario.cidade && this.usuario.cidade.id) {
         this.usuario.cidade = { id: this.usuario.cidade.id } as Cidade;
       }
