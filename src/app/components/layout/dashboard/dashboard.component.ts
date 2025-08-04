@@ -6,11 +6,13 @@ import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
 import { CategoriaService } from '../../../services/categoria.service';
 import { Categoria } from '../../../models/categoria';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { Pagina } from '../../../models/pagina';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgbPaginationModule],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
@@ -19,9 +21,15 @@ export class DashboardComponent {
   router = inject(Router);
   jogoService = inject(JogoService); 
   categoriaService = inject(CategoriaService); // Injeta o serviço de jogos
-  lista: Jogo[] = [];  // Lista de jogos a ser exibida
+  //lista: Jogo[] = [];  // Lista de jogos a ser exibida
   categorias: Categoria[] = [];  // Lista de categorias a ser exibida
   categoriaSelecionada: string = '';  // Variável para armazenar a categoria selecionada
+
+  
+  lista: Jogo[] = [];
+  pagina: Pagina = new Pagina();
+  numPage: number = 1;
+  qtidPorPagina: number = 1;
 
 
   // Construtor
@@ -30,17 +38,21 @@ export class DashboardComponent {
     this.carregarCategorias();
   }
 
-  // Método para buscar todos os jogos
-  findAll() {
-    this.jogoService.findAll().subscribe({
-      next: (listaRetornada) => {
-        this.lista = listaRetornada;  // Atribui os jogos à lista
-      },
-      error: (erro) => {
-        Swal.fire(erro.error, "", "error");  // Exibe mensagem de erro caso ocorra um problema
-      }
-    });
-  }
+  findAll(){
+  this.jogoService.findAll(this.numPage).subscribe({
+    next: (page) => {
+      this.lista = page.content;
+      this.pagina = page;
+    },
+    error: (erro) => {
+      Swal.fire(erro.error, '', 'error');
+    }
+  });
+}
+
+
+
+
 
   filtrarPorConsole(consoleId: number) {
     this.jogoService.findByConsole(consoleId).subscribe({
@@ -71,5 +83,8 @@ export class DashboardComponent {
     this.router.navigate(["/admin/jogoDetalhe",id]);
   }
  
-
+  trocarPagina(pageClicada: any){
+    this.numPage = pageClicada;
+    this.findAll();
+  }
 }

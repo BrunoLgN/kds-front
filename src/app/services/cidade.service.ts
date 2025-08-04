@@ -11,7 +11,11 @@ export class CidadeService {
 
    http = inject(HttpClient);
     
+<<<<<<< HEAD
       API = environment.SERVIDOR + '/api/cidade';
+=======
+      API = environment.SERVIDOR+'/api/cidade';
+>>>>>>> 08b9b4b77c794e0a6e75d3b5cde080146e18607f
 
   constructor() { }
 

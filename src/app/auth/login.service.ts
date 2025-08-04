@@ -14,6 +14,7 @@ export class LoginService {
 
   http = inject(HttpClient);
   API = environment.SERVIDOR + "/api/login";
+  API = environment.SERVIDOR+"/api/login";
 
 
   constructor() {
@@ -53,5 +54,5 @@ export class LoginService {
       return false;
   }
 
-
+  
 }

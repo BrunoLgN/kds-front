@@ -9,7 +9,11 @@ import { environment } from '../../environments/environment';
 })
 export class CategoriaService {
   http = inject(HttpClient);
+<<<<<<< HEAD
   API =  environment.SERVIDOR + '/api/categoria';
+=======
+  API = environment.SERVIDOR+'/api/categoria';
+>>>>>>> 08b9b4b77c794e0a6e75d3b5cde080146e18607f
 
   constructor() { }
 

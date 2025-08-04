@@ -10,7 +10,11 @@ import { environment } from '../../environments/environment';
 export class RankingService {
 http = inject(HttpClient);
 
+<<<<<<< HEAD
   API = environment.SERVIDOR +'/api/ranking';
+=======
+  API = environment.SERVIDOR+'/api/ranking';
+>>>>>>> 08b9b4b77c794e0a6e75d3b5cde080146e18607f
   constructor() { }
 findAll(): Observable<Ranking[]>{
     return this.http.get<Ranking[]>(this.API+'/findAll');
