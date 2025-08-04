@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { Console } from '../models/console';
 
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { Observable } from 'rxjs';
 export class ConsoleService {
   http = inject(HttpClient);
   
-    API = 'http://localhost:8080/api/console';
+    API = environment.SERVIDOR + '/api/console';
 
   constructor() { }
       findAll(): Observable<Console[]>{
