@@ -11,11 +11,7 @@ export class UsuarioService {
 
   http = inject(HttpClient);
 
-<<<<<<< HEAD
   API = environment.SERVIDOR +'/api/usuario';
-=======
-  API = environment.SERVIDOR+'/api/usuario';
->>>>>>> 08b9b4b77c794e0a6e75d3b5cde080146e18607f
 
   constructor() { }
 
