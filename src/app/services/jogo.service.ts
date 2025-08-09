@@ -3,15 +3,23 @@ import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Jogo } from '../models/jogo';
 import { environment } from '../../environments/environment';
+<<<<<<< HEAD
+
+=======
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { Pagina } from '../models/pagina';
+>>>>>>> 08b9b4b77c794e0a6e75d3b5cde080146e18607f
 @Injectable({
   providedIn: 'root'
 })
 export class JogoService {
 http = inject(HttpClient);
 
+<<<<<<< HEAD
+  API = environment.SERVIDOR +'/api/jogo';
+=======
   API = environment.SERVIDOR+'/api/jogo';
+>>>>>>> 08b9b4b77c794e0a6e75d3b5cde080146e18607f
   constructor() { }
 
     findAll(numPaginaAtual: number): Observable<Pagina>{ 

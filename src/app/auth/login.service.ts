@@ -13,7 +13,8 @@ import { environment } from '../../environments/environment';
 export class LoginService {
 
   http = inject(HttpClient);
-  API = environment.SERVIDOR+"/api/login";
+  API = environment.SERVIDOR + "/api/login";
+
 
 
   constructor() {
