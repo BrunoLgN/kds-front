@@ -17,6 +17,10 @@ http = inject(HttpClient);
     findAll(numPaginaAtual: number): Observable<Pagina>{ 
     return this.http.get<Pagina>(this.API+'/findAll/'+numPaginaAtual); 
   } 
+
+  findAllAll(): Observable<Jogo[]>{
+              return this.http.get<Jogo[]>(this.API+'/findAllAll');
+            }
   
     findById(id: number): Observable<Jogo>{
       return this.http.get<Jogo>(this.API+'/findById/'+id);
