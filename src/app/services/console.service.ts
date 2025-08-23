@@ -11,7 +11,7 @@ import { environment } from '../../environments/environment';
 export class ConsoleService {
   http = inject(HttpClient);
   
-    API = environment.SERVIDOR+'/api/console';
+    API = environment.SERVIDOR + '/api/console';
 
   constructor() { }
       findAll(): Observable<Console[]>{
