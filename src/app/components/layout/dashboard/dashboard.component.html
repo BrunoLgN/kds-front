@@ -1,6 +1,7 @@
 <div class="container">
+    
     <div class="row">
-        <div class="col-md">
+        <div class="col-fluid ">
             <br>
             <div class="d-flex justify-content-center mb-3 gap-4">
                 @for (categoria of categorias; track categoria.id) {
@@ -24,15 +25,16 @@
 
             <div class="container2">
                 <div class="row">
-                    <div class="col-3" (click)="filtrarPorConsole(2)">
+                    <div class="col" (click)="filtrarPorConsole(2)">
                         <div class="card" style="width: 18rem;">
                             <img src="ps4.jpg" class="card-img-top" alt="PS4"/>
                             <div class="card-body">
                                 <p class="card-text">Playstation 4</p>
                             </div>
+                            
                         </div>
                     </div>
-                    <div class="col-3" (click)="filtrarPorConsole(3)">
+                    <div class="col" (click)="filtrarPorConsole(3)">
                         <div class="card" style="width: 18rem;">
                             <img src="Xbox_one_logo.svg.png" class="card-img-top" alt="Xbox One"/>
                             <div class="card-body">
@@ -40,7 +42,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-3" (click)="filtrarPorConsole(15)">
+                    <div class="col" (click)="filtrarPorConsole(15)">
                         <div class="card" style="width: 18rem;">
                             <img src="ps5.jpg" class="card-img-top" alt="PS5"/>
                             <div class="card-body">
@@ -48,7 +50,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-3" (click)="filtrarPorConsole(11)">
+                    <div class="col" (click)="filtrarPorConsole(11)">
                         <div class="card" style="width: 18rem;">
                             <img src="wii.gif" class="card-img-top" alt="Nintendo Wii"/>
                             <div class="card-body">
@@ -56,6 +58,9 @@
                             </div>
                         </div>
                     </div>
+                    
+                    
+                    
                 </div>
             </div>
 

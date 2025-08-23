@@ -23,7 +23,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Telefone</th>
                         <th scope="col">Cidade</th>
-                        <th scope="col">Ranking</th>
+                        
                     </tr>
                     </thead>
                     <tbody>
@@ -34,8 +34,8 @@
                             <td>{{usuario.email}}</td>
                             <td>{{usuario.telefone}}</td>
                             <td>{{usuario.cidade.nome}}</td>
-                            <td>{{usuario.ranking.nome}}</td>
-                            <td class="alinharEsquerda"> 
+                            
+                            <td> 
                                 <button (click)="abrirModal(usuario)" class="btn btn-primary">Editar</button>
 
                                 <button (click)="deleteById(usuario)" class="btn btn-danger">Deletar</button>
