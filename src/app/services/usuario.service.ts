@@ -11,7 +11,7 @@ export class UsuarioService {
 
   http = inject(HttpClient);
 
-  API = environment.SERVIDOR +'/api/usuario';
+  API = environment.SERVIDOR+'/api/usuario';
 
   constructor() { }
 
@@ -43,7 +43,7 @@ export class UsuarioService {
     return this.http.put<string>(this.API+'/update/'+id, usuario, {responseType: 'text' as 'json'});  
   }
 
-  API2 = environment.SERVIDOR +'/api/connection';
+  API2 = 'http://localhost:8080/api/connection';
 
   login(user: Usuario): Observable<string> {
     return this.http.post<string>(`${this.API2}/login`, user, {

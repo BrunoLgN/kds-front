@@ -23,19 +23,8 @@ export class JogoListComponent {
   jogoService = inject(JogoService);
 
   constructor() {
-    this.findAllAll();
+    this.findAll();
   }
-
-  findAllAll(){
-            this.jogoService.findAllAll().subscribe({
-              next: (listaRetornada) =>{
-                this.lista = listaRetornada;
-              },
-              error: (erro) =>{
-                Swal.fire(erro.error,"","error");
-              }
-            });
-          }
 
   findAll() {
     this.jogoService.findAll(this.numPaginaAtual).subscribe({
