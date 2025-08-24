@@ -56,7 +56,7 @@ export class RankingListComponent {
     
           
           Swal.fire({
-            title: "Você realmente deseja deletar o usuario?",
+            title: "Você realmente deseja deletar o ranking?",
             showDenyButton: true,
             
             confirmButtonText: "DELETAR",
