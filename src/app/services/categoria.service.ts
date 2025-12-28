@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Categoria } from '../models/categoria';
@@ -8,35 +8,32 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class CategoriaService {
-  http = inject(HttpClient);
-  API = environment.SERVIDOR+'/api/categoria';
 
-  constructor() { }
+  private http = inject(HttpClient);
+  private API = environment.SERVIDOR + '/api/categoria';
 
-  findAll(): Observable<Categoria[]>{
-      return this.http.get<Categoria[]>(this.API+'/findAll');
-    }
   
-    findById(id: number): Observable<Categoria>{
-      return this.http.get<Categoria>(this.API+'/findById/'+id);
-    }
+  findAll(): Observable<Categoria[]> {
+    return this.http.get<Categoria[]>(`${this.API}/findAll`);
+  }
+
   
-    findByNomeStartingWithIgnoreCase(nome: string): Observable<Categoria[]>{
-      let par = new HttpParams()
-      .set('nome',nome);
-      
-      return this.http.get<Categoria[]>(this.API+'/findByNomeStartingWithIgnoreCase', {params: par});
-    }
+  findById(id: number): Observable<Categoria> {
+    return this.http.get<Categoria>(`${this.API}/findById/${id}`);
+  }
+
   
-    deleteById(id: number): Observable<string>{
-      return this.http.delete<string>(this.API+'/delete/'+id, {responseType: 'text' as 'json'});
-    }
+  save(categoria: Categoria): Observable<Categoria> {
+    return this.http.post<Categoria>(`${this.API}/save`, categoria);
+  }
+
   
-    save(cidade: Categoria): Observable<string> {
-      return this.http.post<string>(this.API+'/save', cidade, {responseType: 'text' as 'json'});
-    }
+  update(id: number, categoria: Categoria): Observable<Categoria> {
+    return this.http.put<Categoria>(`${this.API}/update/${id}`, categoria);
+  }
+
   
-    update(cidade: Categoria, id: number): Observable<string> {
-      return this.http.put<string>(this.API+'/update/'+id, cidade, {responseType: 'text' as 'json'});  
-    }
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.API}/delete/${id}`);
+  }
 }

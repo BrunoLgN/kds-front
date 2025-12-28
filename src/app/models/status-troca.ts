@@ -1,0 +1,6 @@
+export enum StatusTroca {
+  SOLICITADA = "SOLICITADA",
+  ACEITA = "ACEITA",
+  CONCLUIDA = "CONCLUIDA",
+  CANCELADA = "CANCELADA"
+}

@@ -9,38 +9,46 @@ import { environment } from '../../environments/environment';
 })
 export class CidadeService {
 
-   http = inject(HttpClient);
-    
-      API = environment.SERVIDOR+'/api/cidade';
+  private http = inject(HttpClient);
+  private API = environment.SERVIDOR + '/api/cidade';
 
-  constructor() { }
-
-
-  findAll(): Observable<Cidade[]>{
-    return this.http.get<Cidade[]>(this.API+'/findAll');
+  
+  findAll(): Observable<Cidade[]> {
+    return this.http.get<Cidade[]>(`${this.API}/findAll`);
   }
 
-  findById(id: number): Observable<Cidade>{
-    return this.http.get<Cidade>(this.API+'/findById/'+id);
+  
+  findById(id: number): Observable<Cidade> {
+    return this.http.get<Cidade>(`${this.API}/findById/${id}`);
   }
 
-  findByNomeStartingWithIgnoreCase(nome: string): Observable<Cidade[]>{
-    let par = new HttpParams()
-    .set('nome',nome);
-    
-    return this.http.get<Cidade[]>(this.API+'/findByNomeStartingWithIgnoreCase', {params: par});
+  
+  findByNomeStartingWith(nome: string): Observable<Cidade[]> {
+    return this.http.get<Cidade[]>(`${this.API}/findByNomeStartingWithIgnoreCase`, {
+      params: { nome }
+    });
   }
 
-  deleteById(id: number): Observable<string>{
-    return this.http.delete<string>(this.API+'/delete/'+id, {responseType: 'text' as 'json'});
+  
+  findByNomeIgnoreCase(nome: string): Observable<Cidade[]> {
+    return this.http.get<Cidade[]>(`${this.API}/findByNomeIgnoreCase`, {
+      params: { nome }
+    });
   }
 
-  save(cidade: Cidade): Observable<string> {
-    return this.http.post<string>(this.API+'/save', cidade, {responseType: 'text' as 'json'});
+  
+  save(cidade: Cidade): Observable<Cidade> {
+    return this.http.post<Cidade>(`${this.API}/save`, cidade);
   }
 
-  update(cidade: Cidade, id: number): Observable<string> {
-    return this.http.put<string>(this.API+'/update/'+id, cidade, {responseType: 'text' as 'json'});  
+  
+  update(id: number, cidade: Cidade): Observable<Cidade> {
+    return this.http.put<Cidade>(`${this.API}/update/${id}`, cidade);
+  }
+
+  
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.API}/delete/${id}`);
   }
 
 }

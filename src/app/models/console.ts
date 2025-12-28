@@ -4,6 +4,6 @@ export class Console {
     id!: number;
     nome!: string;
     marca!: string;
-    jogo!: Jogo[]//1 para n
+    jogos!: Jogo[]//1 para n
    
 }
