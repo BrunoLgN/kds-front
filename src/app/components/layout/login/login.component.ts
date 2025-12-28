@@ -1,4 +1,4 @@
-import { Component, inject, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
+/*import { Component, inject, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
@@ -73,4 +73,4 @@ export class LoginComponent {
   
  
 
-}
+}*/

@@ -8,6 +8,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+
 import { NgxFloatUiModule } from 'ngx-float-ui';
 
 @NgModule({
@@ -19,7 +20,10 @@ import { NgxFloatUiModule } from 'ngx-float-ui';
     MatListModule,
     MatIconModule,
     MatSnackBarModule,
-    NgxFloatUiModule // sem forRoot() aqui
+    NgxFloatUiModule,
+
+
+    
   ],
   exports: [
     MatGridListModule,

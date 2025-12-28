@@ -12,8 +12,6 @@ import { LoginService } from '../../../auth/login.service';
 })
 export class MenuComponent {
 
-  constructor(public loginService: LoginService) {
-    
-  }
+
 
 }

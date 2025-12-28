@@ -1,11 +1,7 @@
-<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #120527;">
-  <!-- Container wrapper -->
   <div class="container-fluid">
-    <!-- Navbar brand -->
     <a class="navbar-brand fw-bold" href="admin/dashboard">KDS</a>
 
-    <!-- Toggle button -->
     <button
       class="navbar-toggler"
       type="button"
@@ -16,56 +12,49 @@
       <i class="fas fa-bars"></i>
     </button>
     
-    <!-- Collapsible wrapper -->
     <div
       class="collapse navbar-collapse"
       id="navbarSupportedContent"
       mdbCollapse
       #basicNavbar="mdbCollapse"
     >
-      <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         
-        @if (loginService.hasPermission('ROLE_ADMIN')) {
+     
           <li class="nav-item">
             <a class="nav-link active" href="admin/rankings" style="color: #f37658;">Rankings</a>
           </li>
-        }
+        
 
-        @if (loginService.hasPermission('ROLE_ADMIN')){
+       
         <li class="nav-item">
           <a class="nav-link active " href="admin/consoles" style="color:  #f37658;">Consoles </a>
         </li>
-      }
-      @if (loginService.hasPermission('ROLE_ADMIN')){
+      
+    
         <li class="nav-item">
           <a class="nav-link active" href="admin/usuarios" style="color:  #f37658;">Usuarios</a>
         </li>
-      }
+      
 
 
         <li class="nav-item">
           <a class="nav-link active" href="admin/jogos" style="color:  #f37658;">Jogos</a>
         </li>
 
-        @if (loginService.hasPermission('ROLE_ADMIN')){
+        
         <li class="nav-item">
           <a class="nav-link active" href="admin/cidades" style="color:  #f37658;">Cidades</a>
         </li>
-      }
+      
         <li class="nav-item">
           <a class="nav-link active" href="chat" style="color:  #f37658;">Chat</a>
         </li>
       </ul>
-      <!-- Left links -->
 
-      <!-- Search form -->
       
       
     </div>
-    <!-- Collapsible wrapper -->
   </div>
-  <!-- Container wrapper -->
 </nav>
-<!-- Navbar -->
 

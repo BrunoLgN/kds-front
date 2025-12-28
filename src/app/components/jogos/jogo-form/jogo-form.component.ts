@@ -122,4 +122,6 @@
     onFileSelected(event: any): void {
       this.selectedFile = event.target.files[0];
     }
+
+    
   }

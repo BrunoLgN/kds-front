@@ -55,6 +55,12 @@
             />
             <label mdbLabel class="form-label" for="typeValor">Valor</label>
           </mdb-form-control>
+          <mdb-form-control>
+            <input type="file" multiple value="select" #selectFile
+            (change)="onFileSelected($event)"
+            >
+          </mdb-form-control>
+
 
           <div>
             @if(jogo.console == null){
